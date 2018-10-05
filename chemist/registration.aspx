@@ -8,6 +8,9 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <script src="../css/bootstrap.min.js"></script>
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <script src="../js/jquery-ui.min.js"></script>
+    <link href="../js/jquery-ui.min.css" rel="stylesheet" />
+    <script src="../js/datepickers.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">

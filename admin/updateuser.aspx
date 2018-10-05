@@ -6,8 +6,8 @@
 <head runat="server">
     <title></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <script src="../css/bootstrap.min.js"></script>
     <script src="../css/jquery.min.js"></script>
+    <script src="../css/bootstrap.min.js"></script>
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>

@@ -6,8 +6,8 @@
 <head runat="server">
     <title></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <script src="../css/bootstrap.min.js"></script>
     <script src="../css/jquery.min.js"></script>
+    <script src="../css/bootstrap.min.js"></script>
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -19,7 +19,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="home.aspx">Home</a></li>
-                    <li class="active"><a href="#">Add Users</a></li>
+                    <li class="active"><a href="adduser.aspx">Add Users</a></li>
                     <li><a href="updateuser.aspx">Update users</a></li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
             <h3>Select user to add:</h3>
             <div class="btn-group btn-group-justified">
                 <a href="addOperator.aspx" class="btn btn-primary">Operator</a>
-                <a href="addDoctor.aspx" class="btn btn-primary">Doctor</a>
+                <a href="addDoctor.aspx" class="btn btn-success">Doctor</a>
             </div>
         </div>
     </form>
