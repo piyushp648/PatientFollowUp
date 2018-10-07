@@ -6,8 +6,9 @@
 <head runat="server">
     <title>Home</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <script src="css/bootstrap.min.js"></script>
     <script src="css/jquery.min.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+    
 </head>
 <body>
     <form id="form1" runat="server">
