@@ -49,6 +49,11 @@ public partial class admin_addOperator :  System.Web.UI.Page
         {
             txtPassword.Focus();
         }
+        
+        else if (txtCnfPassword.Text.Length == 0)
+        {
+            txtCnfPassword.Focus();
+        }
         else if (!txtPassword.Equals(txtCnfPassword))
         {
             lblInfo.Text = "Password do not match!";

@@ -36,6 +36,14 @@ public partial class patient_registration : System.Web.UI.Page
         {
             txtMedicalHistory.Focus();
         }
+        else if (txtPassword.Text.Length == 0)
+        {
+            txtPassword.Focus();
+        }
+        else if (txtCnfPassword.Text.Length == 0)
+        {
+            txtCnfPassword.Focus();
+        }
         else if (!txtPassword.Equals(txtCnfPassword))
         {
             lblInfo.Text = "Password do not match!";

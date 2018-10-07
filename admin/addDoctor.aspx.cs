@@ -51,7 +51,13 @@ public partial class admin_addDoctor :  System.Web.UI.Page
         }else if(txtPassword.Text.Length == 0)
         {
             txtPassword.Focus();
-        }else if (!txtPassword.Equals(txtCnfPassword))
+        }
+        
+        else if (txtCnfPassword.Text.Length == 0)
+        {
+            txtCnfPassword.Focus();
+        }
+        else if (!txtPassword.Equals(txtCnfPassword))
         {
             lblInfo.Text = "Password do not match!";
             lblInfo.CssClass = "label label-danger";

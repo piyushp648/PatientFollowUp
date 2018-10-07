@@ -16,7 +16,7 @@ public partial class _Default :  System.Web.UI.Page
 
    
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    protected void btnLogin_Click(object sender, EventArgs e)
     {
         if (txtUsername.Text == "Rajshree" && txtPassword.Text == "1234")
         {
