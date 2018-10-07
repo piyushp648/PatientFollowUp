@@ -13,6 +13,9 @@ public partial class patient_bookAppointment : System.Web.UI.Page
         if (!IsPostBack)
         {
             FillDoctorData();
+            string emailID = Session["UserID"].ToString();
+            lblInfo.Text = emailID;
+            lblInfo.CssClass = "label label-warning";
         }
     }
 
@@ -46,13 +49,19 @@ public partial class patient_bookAppointment : System.Web.UI.Page
             lblInfo.CssClass = "label label-danger";
         }
 
-        int pid = 0;
+
+
+        string emailID = Session["UserID"].ToString();
+        var dataSource = (from d in obj.Patients where d.email.Equals(emailID) select new { d.patient_id }).First();
+        
+        int pid = dataSource.patient_id;
+
         int docid = Convert.ToInt32(grdDoctors.DataKeys[grdDoctors.SelectedRow.RowIndex].Values["doctor_id"].ToString());
         int opid = Convert.ToInt32(grdDoctors.DataKeys[grdDoctors.SelectedRow.RowIndex].Values["operator_id"].ToString());
         DateTime convertedDate = DateTime.Parse(txtAppointmentDate.Text);
         //DateTime convertedTime = DateTime.Parse(txtAppointmentTime.Text);
         TimeSpan convertedTime = TimeSpan.Parse(txtAppointmentTime.Text);
-        if (obj.SP_APPOINTMENT(1, 0, pid, docid, opid, 0, convertedDate, convertedTime, "Pending","Booked") == 0)
+        if (obj.SP_APPOINTMENT(1, 0, pid, docid, opid,400 , convertedDate, convertedTime, "Pending","Booked") == 0)
         {
             lblInfo.Text = "Appointment booked succesfully";
             lblInfo.CssClass = "label label-success";
