@@ -31,6 +31,7 @@ public partial class operator_viewAppointments : System.Web.UI.Page
         {
             grdViewAppointment.DataSource = dataSource;
             grdViewAppointment.DataBind();
+            lblInfo.Text = "No data found!";
         }
         else
         {
@@ -49,7 +50,7 @@ public partial class operator_viewAppointments : System.Web.UI.Page
 
         if (obj.SP_APPOINTMENT(2, dataSource.appointment_id,dataSource.patient_id, dataSource.doctor_id, dataSource.operator_id, dataSource.payment_id, dataSource.appointment_date, dataSource.appointment_time, "Pending", "Confirmed") == 0)
         {
-            lblInfo.Text = "Appointment booked succesfully";
+            lblInfo.Text = "Appointment confirmed succesfully";
             lblInfo.CssClass = "label label-success";
         }
         else

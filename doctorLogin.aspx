@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-8 col-md-8 col-xs-12">
                             <!--<asp:Button runat="server" CssClass="btn btn-success btn-block btn-enlarge" Text="Login"/>-->
-                             <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-success btn-block btn-enlarge" Text="Login" OnClick="btnSubmit_Click"/>
+                             <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-success btn-block btn-enlarge" Text="Login" OnClick="btnLogin_Click1"/>
            
                         </div>
                     </div>

@@ -12,29 +12,29 @@
     <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
-    
-        <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Patient FollowUp</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="Home.aspx">Home</a></li>
-      <li><a href="patientLogin.aspx">Patient</a></li>
-      <li><a href="doctorLogin.aspx">Doctor</a></li>
-      <li><a href="chemistLogin.aspx">Chemist</a></li>
-      <li class="active"><a href="operatorLogin.aspx">Operator</a></li>
-      <li><a href="adminLogin.aspx">Admin</a></li>
 
-    </ul>
-  </div>
-</nav>
-  
-<div class="container-fluid bg">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Patient FollowUp</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Home.aspx">Home</a></li>
+                <li><a href="patientLogin.aspx">Patient</a></li>
+                <li><a href="doctorLogin.aspx">Doctor</a></li>
+                <li><a href="chemistLogin.aspx">Chemist</a></li>
+                <li class="active"><a href="operatorLogin.aspx">Operator</a></li>
+                <li><a href="adminLogin.aspx">Admin</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg">
         <div class="row">
             <div class="col-sm-4 col-md-4 col-xs-12"></div>
             <div class="col-sm-4 col-md-4 col-xs-12">
-                 <form id="formLoginOperator" runat="server" class="form-horizontal form-box">
+                <form id="formLoginOperator" runat="server" class="form-horizontal form-box">
                     <h1 class="fontstyle">Welcome!</h1>
                     <h2 class="fontstyle">Please login to continue</h2>
                     <div class="form-group">
@@ -58,9 +58,9 @@
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-8 col-md-8 col-xs-12">
                             <!--<asp:Button runat="server" CssClass="btn btn-success btn-block btn-enlarge" Text="Login"/>-->
-                            <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-success btn-block btn-enlarge" Text="Login" OnClick="btnSubmit_Click"/>
-           
-               
+                            <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-success btn-block btn-enlarge" Text="Login" OnClick="btnLogin_Click" />
+
+
                         </div>
                     </div>
                 </form>
@@ -68,6 +68,6 @@
             <div class="col-md-4 col-xs-12"></div>
         </div>
     </div>
-    
+
 </body>
 </html>
