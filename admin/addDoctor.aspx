@@ -68,7 +68,7 @@
                             <label for="txtEmailID" class="required">Email ID:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtEmailID" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtEmailID" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@
                             <label for="txtMobile" class="required">Mobile Number:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtMobile" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtMobile" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -88,7 +88,7 @@
                             <label for="txtRegistrationNo" class="required">Registration No:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtRegistrationNo" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtRegistrationNo" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
                             <label for="txtDegree" class="required">Degree: </label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtDegree" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtDegree" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@
                             <label for="txtSpecialization" class="required">Specialization: </label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtSpecialization" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtSpecialization" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@
                             <label for="txtAddress" class="required">Home Address</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtHomeAddress" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtHomeAddress" CssClass="form-control" TextMode="MultiLine" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -124,7 +124,26 @@
                             <label for="txtWorkAddress" class="required">Work Address</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtWorkAddress" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtWorkAddress" CssClass="form-control" TextMode="MultiLine" required></asp:TextBox>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label for="txtPassword" class="required">Password: </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control"  TextMode="Password"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label for="txtPassword" class="required">Confirm Password: </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <asp:TextBox runat="server" ID="txtCnfPassword" CssClass="form-control"  TextMode="Password"></asp:TextBox>
                         </div>
                     </div>
 
@@ -132,10 +151,11 @@
                         <div class="col-sm-6">
                         </div>
                         <div class="col-sm-6">
-                            <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success"  UseSubmitBehavior="false" />
+                            <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success"  UseSubmitBehavior="false" OnClick="btnSubmit_Click" />
                             
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

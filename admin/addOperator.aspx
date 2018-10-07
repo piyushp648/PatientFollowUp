@@ -67,7 +67,7 @@
                             <label for="txtEmailID" class="required">Email ID:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtEmailID" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtEmailID" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@
                             <label for="txtMobile" class="required">Mobile Number:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtMobile" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtMobile" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                             <label for="txtAddress" class="required">Address</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtHomeAddress" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtHomeAddress" CssClass="form-control" TextMode="MultiLine" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -94,7 +94,7 @@
                             <label for="txtDoctorId" class="required">Doctor Id:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtDoctorId" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtDoctorId" CssClass="form-control" required></asp:TextBox>
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@
                         <div class="col-sm-6">
                         </div>
                         <div class="col-sm-6">
-                            <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success"  UseSubmitBehavior="false" />
+                            <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success"  UseSubmitBehavior="false" OnClick="btnSubmit_Click" />
                             
                         </div>
                     </div>
