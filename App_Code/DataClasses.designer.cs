@@ -182,13 +182,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_PATIENT")]
-	public int SP_PATIENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(70)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string phone_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> date_of_birth, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string medical_history)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, patient_id, name_, address_, email, phone_no, date_of_birth, medical_history);
-		return ((int)(result.ReturnValue));
-	}
-	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_PAYMENT")]
 	public int SP_PAYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> payment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string payment_mode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> payment_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string payment_status)
 	{
@@ -207,13 +200,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	public int SP_CHEMIST_QUERY([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_query_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> doctor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(200)")] string query_question, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(111)")] string prescription, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(200)")] string query_response, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string query_status)
 	{
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, chemist_query_id, chemist_id, doctor_id, query_question, prescription, query_response, query_status);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_CHEMIST")]
-	public int SP_CHEMIST([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string license_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string phone_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> date_of_birth, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string type)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, chemist_id, license_no, name_, address_, email, phone_no, date_of_birth, type);
 		return ((int)(result.ReturnValue));
 	}
 	
@@ -256,6 +242,20 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	public int SP_LOGIN([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="VarChar(50)")] string uSERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD_", DbType="VarChar(50)")] string pASSWORD_, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE", DbType="VarChar(50)")] string uSERTYPE)
 	{
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, uSERID, pASSWORD_, uSERTYPE);
+		return ((int)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_CHEMIST")]
+	public int SP_CHEMIST([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string license_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string phone_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> date_of_birth, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string type)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, chemist_id, license_no, name_, address_, email, phone_no, date_of_birth, type);
+		return ((int)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_PATIENT")]
+	public int SP_PATIENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(70)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string phone_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> date_of_birth, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string medical_history)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, patient_id, name_, address_, email, phone_no, date_of_birth, medical_history);
 		return ((int)(result.ReturnValue));
 	}
 }

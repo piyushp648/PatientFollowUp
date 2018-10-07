@@ -123,7 +123,7 @@
                         <div class="col-sm-6">
                         </div>
                         <div class="col-sm-6">
-                            <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success"  UseSubmitBehavior="false"  />
+                            <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success"  UseSubmitBehavior="false" OnClick="btnSubmit_Click"  />
                             
                         </div>
                     </div>

@@ -144,17 +144,6 @@
       <Column Name="usertype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Function Name="dbo.SP_PATIENT" Method="SP_PATIENT">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(70)" />
-    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="medical_history" Type="System.String" DbType="VarChar(100)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.SP_PAYMENT" Method="SP_PAYMENT">
     <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
     <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
@@ -186,18 +175,6 @@
     <Parameter Name="prescription" Type="System.String" DbType="VarChar(111)" />
     <Parameter Name="query_response" Type="System.String" DbType="VarChar(200)" />
     <Parameter Name="query_status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.SP_CHEMIST" Method="SP_CHEMIST">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="chemist_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="license_no" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="type" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.SP_APPOINTMENT" Method="SP_APPOINTMENT">
@@ -259,6 +236,29 @@
     <Parameter Name="USERID" Parameter="uSERID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="PASSWORD_" Parameter="pASSWORD_" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="USERTYPE" Parameter="uSERTYPE" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CHEMIST" Method="SP_CHEMIST">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="chemist_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="license_no" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="type" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_PATIENT" Method="SP_PATIENT">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="medical_history" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
