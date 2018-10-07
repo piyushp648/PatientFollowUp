@@ -98,6 +98,23 @@
                         </div>
                     </div>
 
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label for="txtPassword" class="required">Password: </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control"  TextMode="Password"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label for="txtPassword" class="required">Confirm Password: </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <asp:TextBox runat="server" ID="txtCnfPassword" CssClass="form-control"  TextMode="Password"></asp:TextBox>
+                        </div>
+                    </div>
                     
 
                     <div class="row form-group">

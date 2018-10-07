@@ -29,13 +29,32 @@ public partial class admin_addOperator :  System.Web.UI.Page
         DateTime convertedDOB = DateTime.Parse(txtDOB.Text);
         if (obj.SP_OPERATOR(1, 0, Convert.ToInt32(ddlDoctor.SelectedItem.Value), txtName.Text, txtHomeAddress.Text, txtEmailID.Text, txtMobile.Text, convertedDOB) == 0)
         {
-            lblInfo.Text = "Data added successfully!";
-            lblInfo.CssClass = "label label-success";
+            if (obj.SP_LOGIN(1, txtEmailID.Text, txtPassword.Text,"Operator") == 0)
+            {
+                lblInfo.Text = "Data added successfully!";
+                lblInfo.CssClass = "label label-success";
+                resetFields();
+            }
+            else
+            {
+                lblInfo.Text = "Database error!";
+                lblInfo.CssClass = "label label-danger";
+            }
         }
         else
         {
             lblInfo.Text = "Database error!";
             lblInfo.CssClass = "label label-danger";
         }
+    }
+
+    protected void resetFields()
+    {
+        txtDOB.Text = "";
+        txtEmailID.Text = "";
+        txtHomeAddress.Text = "";
+        txtMobile.Text = "";
+        txtName.Text = "";
+        FillDropDowns.FillDoctors(ddlDoctor);
     }
 }

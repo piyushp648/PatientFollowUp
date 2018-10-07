@@ -30,12 +30,14 @@ public class FillDropDowns
     public static void FillDoctors(DropDownList ddl)
     {
         ddl.Items.Clear();
-        var dataSource = (from d in obj.Doctors select new { data = d.name_, id = d.doctor_id });
+        var dataSource = (from d in obj.Doctors where d.OperatorSet==false select new { data = d.name_, id = d.doctor_id });
         ddl.DataSource = dataSource;
         ddl.DataTextField = "data";
         ddl.DataValueField = "id";
         ddl.DataBind();
         ddl.Items.Insert(0, new ListItem("--SELECT--", "0"));
+
+        
     }
 
 }

@@ -61,7 +61,7 @@ public partial class admin_addDoctor :  System.Web.UI.Page
         DateTime convertedDOB = DateTime.Parse(txtDOB.Text);
         if(obj.SP_DOCTOR(1,0,txtRegistrationNo.Text, txtName.Text, txtHomeAddress.Text, txtEmailID.Text, txtMobile.Text, convertedDOB, txtDegree.Text, txtSpecialization.Text, txtWorkAddress.Text) == 0)
         {
-            if(obj.SP_LOGIN(1,txtEmailID.Text,txtPassword.Text) == 0) { 
+            if(obj.SP_LOGIN(1,txtEmailID.Text,txtPassword.Text,"Doctor") == 0) { 
             lblInfo.Text = "Doctor registered succcessfully";
             lblInfo.CssClass = "label label-success";
             resetFields();

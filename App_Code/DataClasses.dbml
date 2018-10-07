@@ -28,30 +28,6 @@
       <Association Name="Patient_Order_medicine" Member="Order_medicines" ThisKey="patient_id" OtherKey="patient_id" Type="Order_medicine" />
     </Type>
   </Table>
-  <Table Name="dbo.Doctor" Member="Doctors">
-    <Type Name="Doctor">
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="registration_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="name_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="address_" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="phone_no" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="degree" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="specialization" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="work_address_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Doctor_Operator" Member="Operators" ThisKey="doctor_id" OtherKey="doctor_id" Type="Operator" />
-      <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="doctor_id" OtherKey="doctor_id" Type="Appointment" />
-      <Association Name="Doctor_Chemist_query" Member="Chemist_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Chemist_query" />
-      <Association Name="Doctor_Patient_query" Member="Patient_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Patient_query" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Login" Member="Logins">
-    <Type Name="Login">
-      <Column Name="userid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="password_" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Appointment" Member="Appointments">
     <Type Name="Appointment">
       <Column Name="appointment_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -62,10 +38,10 @@
       <Column Name="appointment_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="appointment_time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="payment_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Doctor_Appointment" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" />
       <Association Name="Operator_Appointment" Member="Operator" ThisKey="operator_id" OtherKey="operator_id" Type="Operator" IsForeignKey="true" />
       <Association Name="Patient_Appointment" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" />
       <Association Name="Payment_Appointment" Member="Payment" ThisKey="payment_id" OtherKey="payment_id" Type="Payment" IsForeignKey="true" />
+      <Association Name="Doctor_Appointment" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Chemist" Member="Chemists">
@@ -123,8 +99,8 @@
       <Column Name="prescription" Type="System.String" DbType="VarChar(111)" CanBeNull="true" />
       <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Doctor_Patient_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Patient_Patient_query" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Doctor_Patient_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Order_medicine" Member="Order_medicines">
@@ -142,17 +118,32 @@
       <Association Name="Payment_Order_medicine" Member="Payment" ThisKey="payment_id" OtherKey="payment_id" Type="Payment" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Function Name="dbo.SP_OPERATOR" Method="SP_OPERATOR">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="operator_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
-    <Return Type="System.Int32" />
-  </Function>
+  <Table Name="dbo.Doctor" Member="Doctors">
+    <Type Name="Doctor">
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="registration_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="name_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="address_" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="phone_no" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="degree" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="specialization" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="work_address_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OperatorSet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Doctor_Operator" Member="Operators" ThisKey="doctor_id" OtherKey="doctor_id" Type="Operator" />
+      <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="doctor_id" OtherKey="doctor_id" Type="Appointment" />
+      <Association Name="Doctor_Chemist_query" Member="Chemist_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Chemist_query" />
+      <Association Name="Doctor_Patient_query" Member="Patient_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Patient_query" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Login" Member="Logins">
+    <Type Name="Login">
+      <Column Name="userid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password_" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="usertype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SP_PATIENT" Method="SP_PATIENT">
     <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
     <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
@@ -184,12 +175,6 @@
     <Parameter Name="degree" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="specialization" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="work_address_" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.SP_LOGIN" Method="SP_LOGIN">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USERID" Parameter="uSERID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="PASSWORD_" Parameter="pASSWORD_" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.SP_CHEMIST_QUERY" Method="SP_CHEMIST_QUERY">
@@ -256,6 +241,24 @@
     <Parameter Name="report_id" Type="System.Int32" DbType="Int" />
     <Parameter Name="report_image" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="report_type" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_OPERATOR" Method="SP_OPERATOR">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="operator_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_LOGIN" Method="SP_LOGIN">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USERID" Parameter="uSERID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PASSWORD_" Parameter="pASSWORD_" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="USERTYPE" Parameter="uSERTYPE" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
