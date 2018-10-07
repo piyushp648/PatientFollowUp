@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 /// </summary>
 public class FillDropDowns
 {
+    static DataClassesDataContext obj = new DataClassesDataContext();
     public FillDropDowns()
     {
         //
@@ -24,6 +25,17 @@ public class FillDropDowns
         ddl.Items.Add(new ListItem("Wholesale", "2"));
         ddl.Items.Add(new ListItem("Both", "3"));
         ddl.DataBind();
+    }
+
+    public static void FillDoctors(DropDownList ddl)
+    {
+        ddl.Items.Clear();
+        var dataSource = (from d in obj.Doctors select new { data = d.name_, id = d.doctor_id });
+        ddl.DataSource = dataSource;
+        ddl.DataTextField = "data";
+        ddl.DataValueField = "id";
+        ddl.DataBind();
+        ddl.Items.Insert(0, new ListItem("--SELECT--", "0"));
     }
 
 }

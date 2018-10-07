@@ -91,10 +91,10 @@
 
                      <div class="row form-group">
                         <div class="col-sm-6">
-                            <label for="txtDoctorId" class="required">Doctor Id:</label>
+                            <label for="ddlDoctorId" class="required">Doctor Id:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtDoctorId" CssClass="form-control" required></asp:TextBox>
+                            <asp:DropDownList runat="server" ID="ddlDoctor" CssClass="form-control"></asp:DropDownList>
                         </div>
                     </div>
 

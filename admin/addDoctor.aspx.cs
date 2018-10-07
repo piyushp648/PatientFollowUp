@@ -86,6 +86,5 @@ public partial class admin_addDoctor :  System.Web.UI.Page
         txtWorkAddress.Text = "";
         txtRegistrationNo.Text = "";
         txtMobile.Text = "";
-        
     }
 }
