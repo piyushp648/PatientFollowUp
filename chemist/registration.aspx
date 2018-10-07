@@ -41,7 +41,7 @@
                             <label for="txtName" class="required">Name:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtName" CssClass="form-control" required></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtName" CssClass="form-control" ></asp:TextBox>
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@
                             <label for="txtDOB" class="required">Date Of Birth:</label>
                         </div>
                         <div class="col-sm-6">
-                            <asp:TextBox runat="server" ID="txtDOB" CssClass="form-control" required></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtDOB" CssClass="form-control" ></asp:TextBox>
                         </div>
                     </div>
 
@@ -106,7 +106,23 @@
                             <asp:TextBox runat="server" ID="txtHomeAddress" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label for="txtPassword" class="required">Password: </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control"  TextMode="Password"></asp:TextBox>
+                        </div>
+                    </div>
 
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label for="txtPassword" class="required">Confirm Password: </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <asp:TextBox runat="server" ID="txtCnfPassword" CssClass="form-control"  TextMode="Password"></asp:TextBox>
+                        </div>
+                    </div>
                     
 
                     <div class="row form-group">
