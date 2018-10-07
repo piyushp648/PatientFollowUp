@@ -27,10 +27,30 @@
             </div>
         </nav>
 
-        <div class="container">
-            <h3>Inverted Navbar</h3>
-            <p>An inverted navbar is black instead of gray.</p>
+                <div class="container">
+            <h3>Appointment</h3>
+            <asp:GridView ID="grdViewAppointment" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+                <Columns>
+                    <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
+                    <asp:BoundField DataField="doctor_id" HeaderText="Doctor Id" />
+                    <asp:BoundField DataField="date" HeaderText="Date" />
+                    <asp:BoundField DataField="time" HeaderText="Time" />
+                    <asp:BoundField DataField="payment_status" HeaderText="Payment status" />
+                    <asp:BoundField DataField="status" HeaderText="Appointment Status" />
+                   
+                    <asp:ButtonField Text="Confirm Appoinment" ButtonType="Button" />
+                </Columns>
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
+            </asp:GridView>
         </div>
+
     </form>
 </body>
 </html>

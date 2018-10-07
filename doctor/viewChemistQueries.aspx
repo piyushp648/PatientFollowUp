@@ -27,9 +27,47 @@
             </div>
         </nav>
 
-        <div class="container">
-            <h3>Inverted Navbar</h3>
-            <p>An inverted navbar is black instead of gray.</p>
+       <div class="container">
+            <h3>Patient Queries</h3>
+            <asp:GridView ID="grdChemistQuery" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+                <Columns>
+                    <asp:BoundField DataField="chemist_id" HeaderText="Chemist Id" />
+                    <asp:BoundField DataField="chemist_query_id" HeaderText="Query Id" />
+                    <asp:BoundField DataField="query_question" HeaderText="Question" />
+                    <asp:BoundField DataField="query_status" HeaderText="Query Status" />
+                    <asp:BoundField DataField="prescription" HeaderText="Prescription" />
+
+
+                    <asp:ButtonField Text=" Respond Query" ButtonType="Button" />
+                </Columns>
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
+            </asp:GridView>
+            <div class="col-sm-8">
+
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="txtName" class="required">Query Response:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:TextBox runat="server" ID="txtQueryResponse" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 </body>
