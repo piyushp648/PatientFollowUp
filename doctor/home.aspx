@@ -7,7 +7,8 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+     <form id="form2" runat="server">
+  
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -23,6 +24,7 @@
                 </ul>
             </div>
         </nav>
-    </form>
+    <asp:Label ID="lblSession" runat="server" Text=""></asp:Label>
+        </form>
 </body>
 </html>

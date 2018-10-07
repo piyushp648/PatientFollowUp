@@ -23,6 +23,7 @@
                 </ul>
             </div>
         </nav>
+         <asp:Label ID="lblSession" runat="server" Text=""></asp:Label>
 
     </form>
 </body>

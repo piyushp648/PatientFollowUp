@@ -11,4 +11,15 @@ public partial class Default5 :  System.Web.UI.Page
     {
 
     }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+
+        if (txtUsername.Text == "Piyush" && txtPassword.Text == "1234")
+        {
+            Session["UserID"] = txtUsername.Text;
+            Response.Redirect("/doctor/home.aspx");
+        }
+
+    }
 }
