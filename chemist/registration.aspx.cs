@@ -52,11 +52,11 @@ public partial class chemist_register : System.Web.UI.Page
         }
 
         DateTime convertedDOB = DateTime.Parse(txtDOB.Text);
-        if (obj.SP_CHEMIST(1, 0,txtLicenseNo.Text ,txtName.Text,txtHomeAddress.Text , txtEmailID.Text, txtMobile.Text, convertedDOB, ddlChemistType.SelectedItem.Text) == 0) ;
+        if (obj.SP_CHEMIST(1, 0,txtLicenseNo.Text ,txtName.Text,txtHomeAddress.Text , txtEmailID.Text, txtMobile.Text, convertedDOB, ddlChemistType.SelectedItem.Text) == 0)
         {
-            if (obj.SP_LOGIN(1, txtEmailID.Text, txtPassword.Text) == 0)
+            if (obj.SP_LOGIN(1, txtEmailID.Text, txtPassword.Text,"Chemist") == 0)
             {
-                lblInfo.Text = "Doctor registered succcessfully";
+                lblInfo.Text = "Chemist registered succcessfully";
                 lblInfo.CssClass = "label label-success";
                 resetFields();
             }
