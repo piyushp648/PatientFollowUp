@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 public partial class patient_registration : System.Web.UI.Page
 {
     DataClassesDataContext obj = new DataClassesDataContext();
+
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -36,6 +38,11 @@ public partial class patient_registration : System.Web.UI.Page
         {
             txtMedicalHistory.Focus();
         }
+        else if(txtPassword.Text.Length == 0)
+        {
+            txtPassword.Focus();
+            return;
+        }
         else if (!txtPassword.Equals(txtCnfPassword))
         {
             lblInfo.Text = "Password do not match!";
@@ -59,7 +66,7 @@ public partial class patient_registration : System.Web.UI.Page
                 resetFields();
             }
         }
-
+        
     }
     protected void resetFields()
     {
