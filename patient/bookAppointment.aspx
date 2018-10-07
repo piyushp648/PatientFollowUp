@@ -28,72 +28,81 @@
             </div>
         </nav>
         <div class="container">
-            <div class="col-sm-8">
-
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="txtName" class="required">Search Doctor:</label>
+            <div id="add" class="container">
+                <h2>Book appointment :</h2>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 center-block">
+                        <asp:Label runat="server" ID="lblInfo" CssClass=""></asp:Label>
                     </div>
-                    <div class="col-sm-6">
-                        <asp:TextBox runat="server" ID="txtName" CssClass="form-control"></asp:TextBox>
-                    </div>
+                    <div class="col-sm-4"></div>
                 </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                    </div>
-                    <div class="col-sm-6">
-                        <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-success" UseSubmitBehavior="false" />
+                <div class="row">
+                    <br />
+                    <div class="col-sm-8">
+
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <label for="txtName" class="required">Search Doctor:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-6">
+                                <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <label for="txtName" class="required">Insert date for appointment:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <asp:TextBox runat="server" ID="txtAppointmentDate" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <label for="txtName" class="required">Insert time for appointment:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <asp:TextBox runat="server" ID="txtAppointmentTime" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <asp:GridView ID="grdDoctors" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" DataKeyNames="doctor_id,operator_id" OnSelectedIndexChanged="grdDoctors_SelectedIndexChanged">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Sr. No.">
+                                            <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="name_" HeaderText="Name" />
+                                        <asp:BoundField DataField="degree" HeaderText="Degree" />
+                                        <asp:BoundField DataField="specialization" HeaderText="Specilization" />
+                                        <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
+                                        <asp:BoundField DataField="email" HeaderText="Email Id" />
+                                        <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default btn-block" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+
+                        
+
 
                     </div>
                 </div>
             </div>
         </div>
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
-            <Columns>
-                <asp:BoundField DataField="name_" HeaderText="Name" />
-                <asp:BoundField DataField="degree" HeaderText="Degree" />
-                <asp:BoundField DataField="specialization" HeaderText="Specilization" />
-                <asp:BoundField DataField="work_address_ " HeaderText="Work Address" />
-                <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
-                <asp:BoundField DataField="email" HeaderText="Email Id" />
-            </Columns>
-            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#242121" />
-        </asp:GridView>
-        <div class="col-sm-8">
-            <div class="row form-group">
-                <div class="col-sm-6">
-                    <label for="txtDate" class="required">Insert date of Appointment:</label>
-                </div>
-                <div class="col-sm-6">
-                </div>
-                <asp:TextBox runat="server" ID="txtDate" CssClass="form-control"></asp:TextBox>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="txtTime" class="required">Insert time  of Appointment:</label>
-                    </div>
-                    <div class="col-sm-6">
-                    </div>
-                    <asp:TextBox runat="server" ID="txtTime" CssClass="form-control"></asp:TextBox>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
-                        </div>
-
-                        <div class="col-sm-6">
-                            <asp:Button runat="server" ID="BtnBookAppointment" Text="Book Appointment" CssClass="btn btn-success" UseSubmitBehavior="false" />
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </form>
 </body>
 </html>

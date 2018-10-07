@@ -58,10 +58,8 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-8 col-md-8 col-xs-12">
-                             <div class="col-sm-6">
-                            <asp:Button runat="server" ID="BtnLogin" Text="Login" CssClass="btn btn-success" UseSubmitBehavior="false" OnClick="BtnLogin_Click" />
-
-                        </div>
+                            <!--<asp:Button runat="server" CssClass="btn btn-success btn-block btn-enlarge" Text="Login"/>-->
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Main.aspx" CssClass="btn btn-success btn-block btn-enlarge">Login</asp:HyperLink>
                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="patient/registration.aspx" CssClass="btn btn-primary  btn-block btn-enlarge">Register</asp:HyperLink>
                         </div>
                     </div>
