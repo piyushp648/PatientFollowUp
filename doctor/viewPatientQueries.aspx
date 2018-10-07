@@ -35,7 +35,6 @@
                     <asp:BoundField DataField="patient_query_id" HeaderText="Query Id" />
                     <asp:BoundField DataField="query_question" HeaderText="Question" />
                     <asp:BoundField DataField="query_status" HeaderText="Query Status" />
-                    <asp:BoundField DataField="prescription" HeaderText="Prescription" />
 
 
                     <asp:ButtonField Text=" Respond Query" ButtonType="Button" />
@@ -64,6 +63,8 @@
                     </div>
                     <div class="col-sm-6">
                         <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+                        <asp:Label ID="lblInfo" runat="server"></asp:Label>
 
                     </div>
                 </div>

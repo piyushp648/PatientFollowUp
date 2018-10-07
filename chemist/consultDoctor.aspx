@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <asp:GridView ID="grdConsultDoctor" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+        <asp:GridView ID="grdConsultDoctor" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdConsultDoctor_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="name_" HeaderText="Name" />
                 <asp:BoundField DataField="degree" HeaderText="Degree" />
@@ -57,6 +57,7 @@
                 <asp:BoundField DataField="work_address_ " HeaderText="Work Address" />
                 <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
                 <asp:BoundField DataField="email" HeaderText="Email Id" />
+                <asp:ButtonField ButtonType="Button" Text="Select" />
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -79,11 +80,12 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6">
-                        <asp:Button runat="server" ID="BtnSubmitQuery" Text="Submit Query" CssClass="btn btn-success" UseSubmitBehavior="false" />
+                        <asp:Button runat="server" ID="BtnSubmitQuery" Text="Submit Query" CssClass="btn btn-success" UseSubmitBehavior="false" OnClick="BtnSubmitQuery_Click" />
 
                     </div>
                 </div>
             </div>
+            <asp:Label ID="lblInfo" runat="server" Text=""></asp:Label> 
         </div>
     </form>
 </body>

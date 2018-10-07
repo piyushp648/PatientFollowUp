@@ -19,11 +19,11 @@ public partial class patient_queryDoctor : System.Web.UI.Page
             lblInfo.CssClass = "label label-warning";
         }
     }
-    protected void FillDoctorData(string emailID)
+      protected void FillDoctorData(string emailID)
     {
-        var dataSource = (from d in obj.Doctors
+      var dataSource = (from d in obj.Doctors
                           
-                          select new { d.name_, d.degree, d.specialization, d.phone_no, d.email,d.doctor_id }).ToList();
+                          select new { d.name_, d.degree, d.specialization,d.work_address_ d.phone_no, d.email,d.doctor_id }).ToList();
 
         if (dataSource.Count > 0)
         {
