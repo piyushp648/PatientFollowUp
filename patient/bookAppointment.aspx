@@ -18,9 +18,9 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
-                    <li class="active"><a href="bookAppointment.aspx">Book Appointment</a></li>
+                    <li class="active"><a href="bookAppointments.aspx">Book Appointment</a></li>
                     <li><a href="orderMedicine.aspx">Order Medicine</a></li>
-                    <li><a href="report.aspx">Reports</a></li>
+                    <li><a href="reports.aspx">Reports</a></li>
                     <li><a href="queryDoctor.aspx">Query Doctor</a></li>
 
 

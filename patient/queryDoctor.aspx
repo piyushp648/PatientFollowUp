@@ -48,14 +48,18 @@
             </div>
         </div>
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+        <asp:GridView ID="grdQueryDoctor" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdQueryDoctor_SelectedIndexChanged">
             <Columns>
+                <asp:TemplateField HeaderText="Sr. No.">
+                                            <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                                        </asp:TemplateField>
                 <asp:BoundField DataField="name_" HeaderText="Name" />
                 <asp:BoundField DataField="degree" HeaderText="Degree" />
                 <asp:BoundField DataField="specialization" HeaderText="Specilization" />
                 <asp:BoundField DataField="work_address_ " HeaderText="Work Address" />
                 <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
                 <asp:BoundField DataField="email" HeaderText="Email Id" />
+                <asp:ButtonField ButtonType="Button" Text="Choose " />
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -78,11 +82,12 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6">
-                        <asp:Button runat="server" ID="BtnSubmitQuery" Text="Submit Query" CssClass="btn btn-success" UseSubmitBehavior="false" />
+                        <asp:Button runat="server" ID="BtnSubmitQuery" Text="Submit Query" CssClass="btn btn-success" UseSubmitBehavior="false" OnClick="BtnSubmitQuery_Click" />
 
                     </div>
                 </div>
             </div>
+            <asp:Label ID="lblInfo" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
 </body>

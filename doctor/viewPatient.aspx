@@ -14,6 +14,7 @@
          <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     <a class="navbar-brand" href="#">Doctor Portal</a>
                 </div>
                 <ul class="nav navbar-nav">
@@ -28,7 +29,7 @@
         </nav>
      <div class="container">
             <h3>Appointment Scheduled</h3>
-            <asp:GridView ID="grdViewAppointment" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+            <asp:GridView ID="grdViewPatient" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
                 <Columns>
                     <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
                     <asp:BoundField DataField="name" HeaderText="Name" />
@@ -50,6 +51,7 @@
                 <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
         </div>
+         <asp:Label ID="lblInfo" runat="server"></asp:Label>
     </form>
 </body>
 </html>
