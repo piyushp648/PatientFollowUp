@@ -24,7 +24,37 @@ public partial class admin_addOperator :  System.Web.UI.Page
             ddlDoctor.Focus();
             return;
         }
-
+        if (txtName.Text.Length == 0)
+        {
+            txtName.Focus();
+        }
+        else if (txtDOB.Text.Length == 0)
+        {
+            txtDOB.Focus();
+        }
+        else if (txtEmailID.Text.Length == 0)
+        {
+            txtEmailID.Focus();
+        }
+        else if (txtMobile.Text.Length == 0)
+        {
+            txtMobile.Focus();
+        }
+        else if (txtHomeAddress.Text.Length == 0)
+        {
+            txtHomeAddress.Focus();
+        }
+      
+        else if (txtPassword.Text.Length == 0)
+        {
+            txtPassword.Focus();
+        }
+        else if (!txtPassword.Equals(txtCnfPassword))
+        {
+            lblInfo.Text = "Password do not match!";
+            lblInfo.CssClass = "label label-danger";
+            txtCnfPassword.Focus();
+        }
 
         DateTime convertedDOB = DateTime.Parse(txtDOB.Text);
         if (obj.SP_OPERATOR(1, 0, Convert.ToInt32(ddlDoctor.SelectedItem.Value), txtName.Text, txtHomeAddress.Text, txtEmailID.Text, txtMobile.Text, convertedDOB) == 0)
