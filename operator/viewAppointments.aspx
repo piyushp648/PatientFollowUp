@@ -29,14 +29,16 @@
 
                 <div class="container">
             <h3>Appointment</h3>
-            <asp:GridView ID="grdViewAppointment" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+                    <asp:Label runat="server" ID="lblInfo" CssClass=""></asp:Label>
+            <asp:GridView ID="grdViewAppointment" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdViewAppointment_SelectedIndexChanged">
                 <Columns>
+                     <asp:BoundField DataField="appointment_id" HeaderText="Appointment Id" />
                     <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
                     <asp:BoundField DataField="doctor_id" HeaderText="Doctor Id" />
                     <asp:BoundField DataField="date" HeaderText="Date" />
                     <asp:BoundField DataField="time" HeaderText="Time" />
                     <asp:BoundField DataField="payment_status" HeaderText="Payment status" />
-                    <asp:BoundField DataField="status" HeaderText="Appointment Status" />
+                    <asp:BoundField DataField="appointment_status" HeaderText="Appointment Status" />
                    
                     <asp:ButtonField Text="Confirm Appoinment" ButtonType="Button" />
                 </Columns>
