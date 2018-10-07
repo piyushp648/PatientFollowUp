@@ -9,6 +9,6 @@ public partial class patient_home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        string check1 = Session["UserID"].ToString();
     }
 }
