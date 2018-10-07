@@ -8,8 +8,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+       <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Operator Portal</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li ><a href="updateDoctorProfile.aspx">Update Docotr's Profile</a></li>
+                    <li><a href="viewAppointment.aspx">View Appointment</a></li>
+
+
+                </ul>
+            </div>
+        </nav>
     </form>
 </body>
 </html>

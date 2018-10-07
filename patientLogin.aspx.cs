@@ -7,8 +7,18 @@ using System.Web.UI.WebControls;
 
 public partial class _Default :  System.Web.UI.Page
 {
+    DataClassesDataContext obj = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+
+    protected void BtnLogin_Click(object sender, EventArgs e)
+    {
+        if(txtUsername.Text == "Rajshree" && txtPassword.Text == "1234")
+        {
+            Session["UserID"] = txtUsername.Text;
+        }
     }
 }
