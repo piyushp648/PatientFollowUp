@@ -22,26 +22,10 @@
       <Column Name="phone_no" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
       <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="medical_history" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="Patient_Appointment" Member="Appointments" ThisKey="patient_id" OtherKey="patient_id" Type="Appointment" />
       <Association Name="Patient_Report" Member="Reports" ThisKey="patient_id" OtherKey="patient_id" Type="Report" />
       <Association Name="Patient_Patient_query" Member="Patient_queries" ThisKey="patient_id" OtherKey="patient_id" Type="Patient_query" />
       <Association Name="Patient_Order_medicine" Member="Order_medicines" ThisKey="patient_id" OtherKey="patient_id" Type="Order_medicine" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Appointment" Member="Appointments">
-    <Type Name="Appointment">
-      <Column Name="appointment_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="patient_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="operator_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="payment_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="appointment_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="appointment_time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="payment_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Operator_Appointment" Member="Operator" ThisKey="operator_id" OtherKey="operator_id" Type="Operator" IsForeignKey="true" />
-      <Association Name="Patient_Appointment" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" />
-      <Association Name="Payment_Appointment" Member="Payment" ThisKey="payment_id" OtherKey="payment_id" Type="Payment" IsForeignKey="true" />
-      <Association Name="Doctor_Appointment" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" />
+      <Association Name="Patient_Appointment" Member="Appointments" ThisKey="patient_id" OtherKey="patient_id" Type="Appointment" />
     </Type>
   </Table>
   <Table Name="dbo.Chemist" Member="Chemists">
@@ -86,8 +70,8 @@
       <Column Name="payment_mode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="payment_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="payment_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Payment_Appointment" Member="Appointments" ThisKey="payment_id" OtherKey="payment_id" Type="Appointment" />
       <Association Name="Payment_Order_medicine" Member="Order_medicines" ThisKey="payment_id" OtherKey="payment_id" Type="Order_medicine" />
+      <Association Name="Payment_Appointment" Member="Appointments" ThisKey="payment_id" OtherKey="payment_id" Type="Appointment" />
     </Type>
   </Table>
   <Table Name="dbo.Patient_query" Member="Patient_queries">
@@ -132,9 +116,9 @@
       <Column Name="work_address_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="OperatorSet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Doctor_Operator" Member="Operators" ThisKey="doctor_id" OtherKey="doctor_id" Type="Operator" />
-      <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="doctor_id" OtherKey="doctor_id" Type="Appointment" />
       <Association Name="Doctor_Chemist_query" Member="Chemist_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Chemist_query" />
       <Association Name="Doctor_Patient_query" Member="Patient_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Patient_query" />
+      <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="doctor_id" OtherKey="doctor_id" Type="Appointment" />
     </Type>
   </Table>
   <Table Name="dbo.Login" Member="Logins">
@@ -142,6 +126,23 @@
       <Column Name="userid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="password_" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="usertype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Appointment" Member="Appointments">
+    <Type Name="Appointment">
+      <Column Name="appointment_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="patient_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="operator_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="payment_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="appointment_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="appointment_time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="payment_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="appointment_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Doctor_Appointment" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" />
+      <Association Name="Operator_Appointment" Member="Operator" ThisKey="operator_id" OtherKey="operator_id" Type="Operator" IsForeignKey="true" />
+      <Association Name="Patient_Appointment" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" />
+      <Association Name="Payment_Appointment" Member="Payment" ThisKey="payment_id" OtherKey="payment_id" Type="Payment" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.SP_PAYMENT" Method="SP_PAYMENT">
@@ -175,18 +176,6 @@
     <Parameter Name="prescription" Type="System.String" DbType="VarChar(111)" />
     <Parameter Name="query_response" Type="System.String" DbType="VarChar(200)" />
     <Parameter Name="query_status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.SP_APPOINTMENT" Method="SP_APPOINTMENT">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="appointment_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="operator_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="appointment_date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="appointment_time" Type="System.TimeSpan" DbType="Time" />
-    <Parameter Name="payment_status" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.SP_ORDER_MEDICINE" Method="SP_ORDER_MEDICINE">
@@ -259,6 +248,19 @@
     <Parameter Name="phone_no" Type="System.String" DbType="VarChar(1)" />
     <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
     <Parameter Name="medical_history" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_APPOINTMENT" Method="SP_APPOINTMENT">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="appointment_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="operator_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="appointment_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="appointment_time" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="payment_status" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="appointment_status" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

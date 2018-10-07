@@ -35,9 +35,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertPatient(Patient instance);
   partial void UpdatePatient(Patient instance);
   partial void DeletePatient(Patient instance);
-  partial void InsertAppointment(Appointment instance);
-  partial void UpdateAppointment(Appointment instance);
-  partial void DeleteAppointment(Appointment instance);
   partial void InsertChemist(Chemist instance);
   partial void UpdateChemist(Chemist instance);
   partial void DeleteChemist(Chemist instance);
@@ -62,6 +59,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertLogin(Login instance);
   partial void UpdateLogin(Login instance);
   partial void DeleteLogin(Login instance);
+  partial void InsertAppointment(Appointment instance);
+  partial void UpdateAppointment(Appointment instance);
+  partial void DeleteAppointment(Appointment instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -107,14 +107,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<Patient>();
-		}
-	}
-	
-	public System.Data.Linq.Table<Appointment> Appointments
-	{
-		get
-		{
-			return this.GetTable<Appointment>();
 		}
 	}
 	
@@ -182,6 +174,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
+	public System.Data.Linq.Table<Appointment> Appointments
+	{
+		get
+		{
+			return this.GetTable<Appointment>();
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_PAYMENT")]
 	public int SP_PAYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> payment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string payment_mode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> payment_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string payment_status)
 	{
@@ -200,13 +200,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	public int SP_CHEMIST_QUERY([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_query_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> doctor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(200)")] string query_question, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(111)")] string prescription, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(200)")] string query_response, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string query_status)
 	{
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, chemist_query_id, chemist_id, doctor_id, query_question, prescription, query_response, query_status);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_APPOINTMENT")]
-	public int SP_APPOINTMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> appointment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> doctor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> operator_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> payment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> appointment_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> appointment_time, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string payment_status)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, appointment_id, patient_id, doctor_id, operator_id, payment_id, appointment_date, appointment_time, payment_status);
 		return ((int)(result.ReturnValue));
 	}
 	
@@ -256,6 +249,13 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	public int SP_PATIENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(70)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string phone_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> date_of_birth, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string medical_history)
 	{
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, patient_id, name_, address_, email, phone_no, date_of_birth, medical_history);
+		return ((int)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_APPOINTMENT")]
+	public int SP_APPOINTMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> appointment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> doctor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> operator_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> payment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> appointment_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> appointment_time, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string payment_status, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string appointment_status)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, appointment_id, patient_id, doctor_id, operator_id, payment_id, appointment_date, appointment_time, payment_status, appointment_status);
 		return ((int)(result.ReturnValue));
 	}
 }
@@ -555,13 +555,13 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _medical_history;
 	
-	private EntitySet<Appointment> _Appointments;
-	
 	private EntitySet<Report> _Reports;
 	
 	private EntitySet<Patient_query> _Patient_queries;
 	
 	private EntitySet<Order_medicine> _Order_medicines;
+	
+	private EntitySet<Appointment> _Appointments;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -585,10 +585,10 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Patient()
 	{
-		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 		this._Reports = new EntitySet<Report>(new Action<Report>(this.attach_Reports), new Action<Report>(this.detach_Reports));
 		this._Patient_queries = new EntitySet<Patient_query>(new Action<Patient_query>(this.attach_Patient_queries), new Action<Patient_query>(this.detach_Patient_queries));
 		this._Order_medicines = new EntitySet<Order_medicine>(new Action<Order_medicine>(this.attach_Order_medicines), new Action<Order_medicine>(this.detach_Order_medicines));
+		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 		OnCreated();
 	}
 	
@@ -732,19 +732,6 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Appointments", ThisKey="patient_id", OtherKey="patient_id")]
-	public EntitySet<Appointment> Appointments
-	{
-		get
-		{
-			return this._Appointments;
-		}
-		set
-		{
-			this._Appointments.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Report", Storage="_Reports", ThisKey="patient_id", OtherKey="patient_id")]
 	public EntitySet<Report> Reports
 	{
@@ -784,6 +771,19 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Appointments", ThisKey="patient_id", OtherKey="patient_id")]
+	public EntitySet<Appointment> Appointments
+	{
+		get
+		{
+			return this._Appointments;
+		}
+		set
+		{
+			this._Appointments.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -802,18 +802,6 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
-	}
-	
-	private void attach_Appointments(Appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Patient = this;
-	}
-	
-	private void detach_Appointments(Appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Patient = null;
 	}
 	
 	private void attach_Reports(Report entity)
@@ -851,399 +839,17 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		this.SendPropertyChanging();
 		entity.Patient = null;
 	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Appointment")]
-public partial class Appointment : INotifyPropertyChanging, INotifyPropertyChanged
-{
 	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _appointment_id;
-	
-	private System.Nullable<int> _patient_id;
-	
-	private System.Nullable<int> _doctor_id;
-	
-	private System.Nullable<int> _operator_id;
-	
-	private System.Nullable<int> _payment_id;
-	
-	private System.Nullable<System.DateTime> _appointment_date;
-	
-	private System.Nullable<System.TimeSpan> _appointment_time;
-	
-	private string _payment_status;
-	
-	private EntityRef<Operator> _Operator;
-	
-	private EntityRef<Patient> _Patient;
-	
-	private EntityRef<Payment> _Payment;
-	
-	private EntityRef<Doctor> _Doctor;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onappointment_idChanging(int value);
-    partial void Onappointment_idChanged();
-    partial void Onpatient_idChanging(System.Nullable<int> value);
-    partial void Onpatient_idChanged();
-    partial void Ondoctor_idChanging(System.Nullable<int> value);
-    partial void Ondoctor_idChanged();
-    partial void Onoperator_idChanging(System.Nullable<int> value);
-    partial void Onoperator_idChanged();
-    partial void Onpayment_idChanging(System.Nullable<int> value);
-    partial void Onpayment_idChanged();
-    partial void Onappointment_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onappointment_dateChanged();
-    partial void Onappointment_timeChanging(System.Nullable<System.TimeSpan> value);
-    partial void Onappointment_timeChanged();
-    partial void Onpayment_statusChanging(string value);
-    partial void Onpayment_statusChanged();
-    #endregion
-	
-	public Appointment()
+	private void attach_Appointments(Appointment entity)
 	{
-		this._Operator = default(EntityRef<Operator>);
-		this._Patient = default(EntityRef<Patient>);
-		this._Payment = default(EntityRef<Payment>);
-		this._Doctor = default(EntityRef<Doctor>);
-		OnCreated();
+		this.SendPropertyChanging();
+		entity.Patient = this;
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int appointment_id
+	private void detach_Appointments(Appointment entity)
 	{
-		get
-		{
-			return this._appointment_id;
-		}
-		set
-		{
-			if ((this._appointment_id != value))
-			{
-				this.Onappointment_idChanging(value);
-				this.SendPropertyChanging();
-				this._appointment_id = value;
-				this.SendPropertyChanged("appointment_id");
-				this.Onappointment_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="Int")]
-	public System.Nullable<int> patient_id
-	{
-		get
-		{
-			return this._patient_id;
-		}
-		set
-		{
-			if ((this._patient_id != value))
-			{
-				if (this._Patient.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onpatient_idChanging(value);
-				this.SendPropertyChanging();
-				this._patient_id = value;
-				this.SendPropertyChanged("patient_id");
-				this.Onpatient_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int")]
-	public System.Nullable<int> doctor_id
-	{
-		get
-		{
-			return this._doctor_id;
-		}
-		set
-		{
-			if ((this._doctor_id != value))
-			{
-				if (this._Doctor.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Ondoctor_idChanging(value);
-				this.SendPropertyChanging();
-				this._doctor_id = value;
-				this.SendPropertyChanged("doctor_id");
-				this.Ondoctor_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_operator_id", DbType="Int")]
-	public System.Nullable<int> operator_id
-	{
-		get
-		{
-			return this._operator_id;
-		}
-		set
-		{
-			if ((this._operator_id != value))
-			{
-				if (this._Operator.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onoperator_idChanging(value);
-				this.SendPropertyChanging();
-				this._operator_id = value;
-				this.SendPropertyChanged("operator_id");
-				this.Onoperator_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payment_id", DbType="Int")]
-	public System.Nullable<int> payment_id
-	{
-		get
-		{
-			return this._payment_id;
-		}
-		set
-		{
-			if ((this._payment_id != value))
-			{
-				if (this._Payment.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onpayment_idChanging(value);
-				this.SendPropertyChanging();
-				this._payment_id = value;
-				this.SendPropertyChanged("payment_id");
-				this.Onpayment_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_date", DbType="Date")]
-	public System.Nullable<System.DateTime> appointment_date
-	{
-		get
-		{
-			return this._appointment_date;
-		}
-		set
-		{
-			if ((this._appointment_date != value))
-			{
-				this.Onappointment_dateChanging(value);
-				this.SendPropertyChanging();
-				this._appointment_date = value;
-				this.SendPropertyChanged("appointment_date");
-				this.Onappointment_dateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_time", DbType="Time")]
-	public System.Nullable<System.TimeSpan> appointment_time
-	{
-		get
-		{
-			return this._appointment_time;
-		}
-		set
-		{
-			if ((this._appointment_time != value))
-			{
-				this.Onappointment_timeChanging(value);
-				this.SendPropertyChanging();
-				this._appointment_time = value;
-				this.SendPropertyChanged("appointment_time");
-				this.Onappointment_timeChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payment_status", DbType="VarChar(20)")]
-	public string payment_status
-	{
-		get
-		{
-			return this._payment_status;
-		}
-		set
-		{
-			if ((this._payment_status != value))
-			{
-				this.Onpayment_statusChanging(value);
-				this.SendPropertyChanging();
-				this._payment_status = value;
-				this.SendPropertyChanged("payment_status");
-				this.Onpayment_statusChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Operator_Appointment", Storage="_Operator", ThisKey="operator_id", OtherKey="operator_id", IsForeignKey=true)]
-	public Operator Operator
-	{
-		get
-		{
-			return this._Operator.Entity;
-		}
-		set
-		{
-			Operator previousValue = this._Operator.Entity;
-			if (((previousValue != value) 
-						|| (this._Operator.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Operator.Entity = null;
-					previousValue.Appointments.Remove(this);
-				}
-				this._Operator.Entity = value;
-				if ((value != null))
-				{
-					value.Appointments.Add(this);
-					this._operator_id = value.operator_id;
-				}
-				else
-				{
-					this._operator_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Operator");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Patient", ThisKey="patient_id", OtherKey="patient_id", IsForeignKey=true)]
-	public Patient Patient
-	{
-		get
-		{
-			return this._Patient.Entity;
-		}
-		set
-		{
-			Patient previousValue = this._Patient.Entity;
-			if (((previousValue != value) 
-						|| (this._Patient.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Patient.Entity = null;
-					previousValue.Appointments.Remove(this);
-				}
-				this._Patient.Entity = value;
-				if ((value != null))
-				{
-					value.Appointments.Add(this);
-					this._patient_id = value.patient_id;
-				}
-				else
-				{
-					this._patient_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Patient");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Appointment", Storage="_Payment", ThisKey="payment_id", OtherKey="payment_id", IsForeignKey=true)]
-	public Payment Payment
-	{
-		get
-		{
-			return this._Payment.Entity;
-		}
-		set
-		{
-			Payment previousValue = this._Payment.Entity;
-			if (((previousValue != value) 
-						|| (this._Payment.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Payment.Entity = null;
-					previousValue.Appointments.Remove(this);
-				}
-				this._Payment.Entity = value;
-				if ((value != null))
-				{
-					value.Appointments.Add(this);
-					this._payment_id = value.payment_id;
-				}
-				else
-				{
-					this._payment_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Payment");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Appointment", Storage="_Doctor", ThisKey="doctor_id", OtherKey="doctor_id", IsForeignKey=true)]
-	public Doctor Doctor
-	{
-		get
-		{
-			return this._Doctor.Entity;
-		}
-		set
-		{
-			Doctor previousValue = this._Doctor.Entity;
-			if (((previousValue != value) 
-						|| (this._Doctor.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Doctor.Entity = null;
-					previousValue.Appointments.Remove(this);
-				}
-				this._Doctor.Entity = value;
-				if ((value != null))
-				{
-					value.Appointments.Add(this);
-					this._doctor_id = value.doctor_id;
-				}
-				else
-				{
-					this._doctor_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Doctor");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
+		this.SendPropertyChanging();
+		entity.Patient = null;
 	}
 }
 
@@ -2010,9 +1616,9 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _payment_status;
 	
-	private EntitySet<Appointment> _Appointments;
-	
 	private EntitySet<Order_medicine> _Order_medicines;
+	
+	private EntitySet<Appointment> _Appointments;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2030,8 +1636,8 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Payment()
 	{
-		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 		this._Order_medicines = new EntitySet<Order_medicine>(new Action<Order_medicine>(this.attach_Order_medicines), new Action<Order_medicine>(this.detach_Order_medicines));
+		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 		OnCreated();
 	}
 	
@@ -2115,19 +1721,6 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Appointment", Storage="_Appointments", ThisKey="payment_id", OtherKey="payment_id")]
-	public EntitySet<Appointment> Appointments
-	{
-		get
-		{
-			return this._Appointments;
-		}
-		set
-		{
-			this._Appointments.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Order_medicine", Storage="_Order_medicines", ThisKey="payment_id", OtherKey="payment_id")]
 	public EntitySet<Order_medicine> Order_medicines
 	{
@@ -2138,6 +1731,19 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Order_medicines.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Appointment", Storage="_Appointments", ThisKey="payment_id", OtherKey="payment_id")]
+	public EntitySet<Appointment> Appointments
+	{
+		get
+		{
+			return this._Appointments;
+		}
+		set
+		{
+			this._Appointments.Assign(value);
 		}
 	}
 	
@@ -2161,18 +1767,6 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	private void attach_Appointments(Appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Payment = this;
-	}
-	
-	private void detach_Appointments(Appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Payment = null;
-	}
-	
 	private void attach_Order_medicines(Order_medicine entity)
 	{
 		this.SendPropertyChanging();
@@ -2180,6 +1774,18 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Order_medicines(Order_medicine entity)
+	{
+		this.SendPropertyChanging();
+		entity.Payment = null;
+	}
+	
+	private void attach_Appointments(Appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.Payment = this;
+	}
+	
+	private void detach_Appointments(Appointment entity)
 	{
 		this.SendPropertyChanging();
 		entity.Payment = null;
@@ -2857,11 +2463,11 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Operator> _Operators;
 	
-	private EntitySet<Appointment> _Appointments;
-	
 	private EntitySet<Chemist_query> _Chemist_queries;
 	
 	private EntitySet<Patient_query> _Patient_queries;
+	
+	private EntitySet<Appointment> _Appointments;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2894,9 +2500,9 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 	public Doctor()
 	{
 		this._Operators = new EntitySet<Operator>(new Action<Operator>(this.attach_Operators), new Action<Operator>(this.detach_Operators));
-		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 		this._Chemist_queries = new EntitySet<Chemist_query>(new Action<Chemist_query>(this.attach_Chemist_queries), new Action<Chemist_query>(this.detach_Chemist_queries));
 		this._Patient_queries = new EntitySet<Patient_query>(new Action<Patient_query>(this.attach_Patient_queries), new Action<Patient_query>(this.detach_Patient_queries));
+		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 		OnCreated();
 	}
 	
@@ -3133,19 +2739,6 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Appointment", Storage="_Appointments", ThisKey="doctor_id", OtherKey="doctor_id")]
-	public EntitySet<Appointment> Appointments
-	{
-		get
-		{
-			return this._Appointments;
-		}
-		set
-		{
-			this._Appointments.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Chemist_query", Storage="_Chemist_queries", ThisKey="doctor_id", OtherKey="doctor_id")]
 	public EntitySet<Chemist_query> Chemist_queries
 	{
@@ -3169,6 +2762,19 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Patient_queries.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Appointment", Storage="_Appointments", ThisKey="doctor_id", OtherKey="doctor_id")]
+	public EntitySet<Appointment> Appointments
+	{
+		get
+		{
+			return this._Appointments;
+		}
+		set
+		{
+			this._Appointments.Assign(value);
 		}
 	}
 	
@@ -3204,18 +2810,6 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 		entity.Doctor = null;
 	}
 	
-	private void attach_Appointments(Appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Doctor = this;
-	}
-	
-	private void detach_Appointments(Appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Doctor = null;
-	}
-	
 	private void attach_Chemist_queries(Chemist_query entity)
 	{
 		this.SendPropertyChanging();
@@ -3235,6 +2829,18 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Patient_queries(Patient_query entity)
+	{
+		this.SendPropertyChanging();
+		entity.Doctor = null;
+	}
+	
+	private void attach_Appointments(Appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.Doctor = this;
+	}
+	
+	private void detach_Appointments(Appointment entity)
 	{
 		this.SendPropertyChanging();
 		entity.Doctor = null;
@@ -3326,6 +2932,424 @@ public partial class Login : INotifyPropertyChanging, INotifyPropertyChanged
 				this._usertype = value;
 				this.SendPropertyChanged("usertype");
 				this.OnusertypeChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Appointment")]
+public partial class Appointment : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _appointment_id;
+	
+	private System.Nullable<int> _patient_id;
+	
+	private System.Nullable<int> _doctor_id;
+	
+	private System.Nullable<int> _operator_id;
+	
+	private System.Nullable<int> _payment_id;
+	
+	private System.Nullable<System.DateTime> _appointment_date;
+	
+	private System.Nullable<System.TimeSpan> _appointment_time;
+	
+	private string _payment_status;
+	
+	private string _appointment_status;
+	
+	private EntityRef<Doctor> _Doctor;
+	
+	private EntityRef<Operator> _Operator;
+	
+	private EntityRef<Patient> _Patient;
+	
+	private EntityRef<Payment> _Payment;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onappointment_idChanging(int value);
+    partial void Onappointment_idChanged();
+    partial void Onpatient_idChanging(System.Nullable<int> value);
+    partial void Onpatient_idChanged();
+    partial void Ondoctor_idChanging(System.Nullable<int> value);
+    partial void Ondoctor_idChanged();
+    partial void Onoperator_idChanging(System.Nullable<int> value);
+    partial void Onoperator_idChanged();
+    partial void Onpayment_idChanging(System.Nullable<int> value);
+    partial void Onpayment_idChanged();
+    partial void Onappointment_dateChanging(System.Nullable<System.DateTime> value);
+    partial void Onappointment_dateChanged();
+    partial void Onappointment_timeChanging(System.Nullable<System.TimeSpan> value);
+    partial void Onappointment_timeChanged();
+    partial void Onpayment_statusChanging(string value);
+    partial void Onpayment_statusChanged();
+    partial void Onappointment_statusChanging(string value);
+    partial void Onappointment_statusChanged();
+    #endregion
+	
+	public Appointment()
+	{
+		this._Doctor = default(EntityRef<Doctor>);
+		this._Operator = default(EntityRef<Operator>);
+		this._Patient = default(EntityRef<Patient>);
+		this._Payment = default(EntityRef<Payment>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int appointment_id
+	{
+		get
+		{
+			return this._appointment_id;
+		}
+		set
+		{
+			if ((this._appointment_id != value))
+			{
+				this.Onappointment_idChanging(value);
+				this.SendPropertyChanging();
+				this._appointment_id = value;
+				this.SendPropertyChanged("appointment_id");
+				this.Onappointment_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="Int")]
+	public System.Nullable<int> patient_id
+	{
+		get
+		{
+			return this._patient_id;
+		}
+		set
+		{
+			if ((this._patient_id != value))
+			{
+				if (this._Patient.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onpatient_idChanging(value);
+				this.SendPropertyChanging();
+				this._patient_id = value;
+				this.SendPropertyChanged("patient_id");
+				this.Onpatient_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int")]
+	public System.Nullable<int> doctor_id
+	{
+		get
+		{
+			return this._doctor_id;
+		}
+		set
+		{
+			if ((this._doctor_id != value))
+			{
+				if (this._Doctor.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Ondoctor_idChanging(value);
+				this.SendPropertyChanging();
+				this._doctor_id = value;
+				this.SendPropertyChanged("doctor_id");
+				this.Ondoctor_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_operator_id", DbType="Int")]
+	public System.Nullable<int> operator_id
+	{
+		get
+		{
+			return this._operator_id;
+		}
+		set
+		{
+			if ((this._operator_id != value))
+			{
+				if (this._Operator.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onoperator_idChanging(value);
+				this.SendPropertyChanging();
+				this._operator_id = value;
+				this.SendPropertyChanged("operator_id");
+				this.Onoperator_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payment_id", DbType="Int")]
+	public System.Nullable<int> payment_id
+	{
+		get
+		{
+			return this._payment_id;
+		}
+		set
+		{
+			if ((this._payment_id != value))
+			{
+				if (this._Payment.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onpayment_idChanging(value);
+				this.SendPropertyChanging();
+				this._payment_id = value;
+				this.SendPropertyChanged("payment_id");
+				this.Onpayment_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_date", DbType="Date")]
+	public System.Nullable<System.DateTime> appointment_date
+	{
+		get
+		{
+			return this._appointment_date;
+		}
+		set
+		{
+			if ((this._appointment_date != value))
+			{
+				this.Onappointment_dateChanging(value);
+				this.SendPropertyChanging();
+				this._appointment_date = value;
+				this.SendPropertyChanged("appointment_date");
+				this.Onappointment_dateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_time", DbType="Time")]
+	public System.Nullable<System.TimeSpan> appointment_time
+	{
+		get
+		{
+			return this._appointment_time;
+		}
+		set
+		{
+			if ((this._appointment_time != value))
+			{
+				this.Onappointment_timeChanging(value);
+				this.SendPropertyChanging();
+				this._appointment_time = value;
+				this.SendPropertyChanged("appointment_time");
+				this.Onappointment_timeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payment_status", DbType="VarChar(20)")]
+	public string payment_status
+	{
+		get
+		{
+			return this._payment_status;
+		}
+		set
+		{
+			if ((this._payment_status != value))
+			{
+				this.Onpayment_statusChanging(value);
+				this.SendPropertyChanging();
+				this._payment_status = value;
+				this.SendPropertyChanged("payment_status");
+				this.Onpayment_statusChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_status", DbType="VarChar(50)")]
+	public string appointment_status
+	{
+		get
+		{
+			return this._appointment_status;
+		}
+		set
+		{
+			if ((this._appointment_status != value))
+			{
+				this.Onappointment_statusChanging(value);
+				this.SendPropertyChanging();
+				this._appointment_status = value;
+				this.SendPropertyChanged("appointment_status");
+				this.Onappointment_statusChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Appointment", Storage="_Doctor", ThisKey="doctor_id", OtherKey="doctor_id", IsForeignKey=true)]
+	public Doctor Doctor
+	{
+		get
+		{
+			return this._Doctor.Entity;
+		}
+		set
+		{
+			Doctor previousValue = this._Doctor.Entity;
+			if (((previousValue != value) 
+						|| (this._Doctor.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Doctor.Entity = null;
+					previousValue.Appointments.Remove(this);
+				}
+				this._Doctor.Entity = value;
+				if ((value != null))
+				{
+					value.Appointments.Add(this);
+					this._doctor_id = value.doctor_id;
+				}
+				else
+				{
+					this._doctor_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Doctor");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Operator_Appointment", Storage="_Operator", ThisKey="operator_id", OtherKey="operator_id", IsForeignKey=true)]
+	public Operator Operator
+	{
+		get
+		{
+			return this._Operator.Entity;
+		}
+		set
+		{
+			Operator previousValue = this._Operator.Entity;
+			if (((previousValue != value) 
+						|| (this._Operator.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Operator.Entity = null;
+					previousValue.Appointments.Remove(this);
+				}
+				this._Operator.Entity = value;
+				if ((value != null))
+				{
+					value.Appointments.Add(this);
+					this._operator_id = value.operator_id;
+				}
+				else
+				{
+					this._operator_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Operator");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Patient", ThisKey="patient_id", OtherKey="patient_id", IsForeignKey=true)]
+	public Patient Patient
+	{
+		get
+		{
+			return this._Patient.Entity;
+		}
+		set
+		{
+			Patient previousValue = this._Patient.Entity;
+			if (((previousValue != value) 
+						|| (this._Patient.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Patient.Entity = null;
+					previousValue.Appointments.Remove(this);
+				}
+				this._Patient.Entity = value;
+				if ((value != null))
+				{
+					value.Appointments.Add(this);
+					this._patient_id = value.patient_id;
+				}
+				else
+				{
+					this._patient_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Patient");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Appointment", Storage="_Payment", ThisKey="payment_id", OtherKey="payment_id", IsForeignKey=true)]
+	public Payment Payment
+	{
+		get
+		{
+			return this._Payment.Entity;
+		}
+		set
+		{
+			Payment previousValue = this._Payment.Entity;
+			if (((previousValue != value) 
+						|| (this._Payment.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Payment.Entity = null;
+					previousValue.Appointments.Remove(this);
+				}
+				this._Payment.Entity = value;
+				if ((value != null))
+				{
+					value.Appointments.Add(this);
+					this._payment_id = value.payment_id;
+				}
+				else
+				{
+					this._payment_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Payment");
 			}
 		}
 	}
