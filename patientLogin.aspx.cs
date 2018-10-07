@@ -19,7 +19,7 @@ public partial class _Default :  System.Web.UI.Page
         if(txtUsername.Text == "Rajshree" && txtPassword.Text == "1234")
         {
             Session["UserID"] = txtUsername.Text;
-            Response.Redirect("/patient/home.aspx");
+            
         }
     }
 }
