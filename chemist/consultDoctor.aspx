@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+        <asp:GridView ID="grdConsultDoctor" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
             <Columns>
                 <asp:BoundField DataField="name_" HeaderText="Name" />
                 <asp:BoundField DataField="degree" HeaderText="Degree" />
