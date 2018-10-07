@@ -23,9 +23,9 @@
       <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="medical_history" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="Patient_Report" Member="Reports" ThisKey="patient_id" OtherKey="patient_id" Type="Report" />
-      <Association Name="Patient_Patient_query" Member="Patient_queries" ThisKey="patient_id" OtherKey="patient_id" Type="Patient_query" />
       <Association Name="Patient_Order_medicine" Member="Order_medicines" ThisKey="patient_id" OtherKey="patient_id" Type="Order_medicine" />
       <Association Name="Patient_Appointment" Member="Appointments" ThisKey="patient_id" OtherKey="patient_id" Type="Appointment" />
+      <Association Name="Patient_Patient_query" Member="Patient_queries" ThisKey="patient_id" OtherKey="patient_id" Type="Patient_query" />
     </Type>
   </Table>
   <Table Name="dbo.Chemist" Member="Chemists">
@@ -38,21 +38,8 @@
       <Column Name="phone_no" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
       <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="type_" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Chemist_Chemist_query" Member="Chemist_queries" ThisKey="chemist_id" OtherKey="chemist_id" Type="Chemist_query" />
       <Association Name="Chemist_Order_medicine" Member="Order_medicines" ThisKey="chemist_id" OtherKey="chemist_id" Type="Order_medicine" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Chemist_query" Member="Chemist_queries">
-    <Type Name="Chemist_query">
-      <Column Name="chemist_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="chemist_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="prescription" Type="System.String" DbType="VarChar(111)" CanBeNull="true" />
-      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Chemist_Chemist_query" Member="Chemist" ThisKey="chemist_id" OtherKey="chemist_id" Type="Chemist" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Doctor_Chemist_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Chemist_Chemist_query" Member="Chemist_queries" ThisKey="chemist_id" OtherKey="chemist_id" Type="Chemist_query" />
     </Type>
   </Table>
   <Table Name="dbo.Report" Member="Reports">
@@ -72,19 +59,6 @@
       <Column Name="payment_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="Payment_Order_medicine" Member="Order_medicines" ThisKey="payment_id" OtherKey="payment_id" Type="Order_medicine" />
       <Association Name="Payment_Appointment" Member="Appointments" ThisKey="payment_id" OtherKey="payment_id" Type="Appointment" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Patient_query" Member="Patient_queries">
-    <Type Name="Patient_query">
-      <Column Name="patient_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="patient_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="prescription" Type="System.String" DbType="VarChar(111)" CanBeNull="true" />
-      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Patient_Patient_query" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Doctor_Patient_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Order_medicine" Member="Order_medicines">
@@ -116,9 +90,9 @@
       <Column Name="work_address_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="OperatorSet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Doctor_Operator" Member="Operators" ThisKey="doctor_id" OtherKey="doctor_id" Type="Operator" />
+      <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="doctor_id" OtherKey="doctor_id" Type="Appointment" />
       <Association Name="Doctor_Chemist_query" Member="Chemist_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Chemist_query" />
       <Association Name="Doctor_Patient_query" Member="Patient_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Patient_query" />
-      <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="doctor_id" OtherKey="doctor_id" Type="Appointment" />
     </Type>
   </Table>
   <Table Name="dbo.Login" Member="Logins">
@@ -145,6 +119,30 @@
       <Association Name="Payment_Appointment" Member="Payment" ThisKey="payment_id" OtherKey="payment_id" Type="Payment" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Chemist_query" Member="Chemist_queries">
+    <Type Name="Chemist_query">
+      <Column Name="chemist_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="chemist_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Chemist_Chemist_query" Member="Chemist" ThisKey="chemist_id" OtherKey="chemist_id" Type="Chemist" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Doctor_Chemist_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Patient_query" Member="Patient_queries">
+    <Type Name="Patient_query">
+      <Column Name="patient_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="patient_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Doctor_Patient_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Patient_Patient_query" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Function Name="dbo.SP_PAYMENT" Method="SP_PAYMENT">
     <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
     <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
@@ -167,17 +165,6 @@
     <Parameter Name="work_address_" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.SP_CHEMIST_QUERY" Method="SP_CHEMIST_QUERY">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="chemist_query_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="chemist_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="query_question" Type="System.String" DbType="VarChar(200)" />
-    <Parameter Name="prescription" Type="System.String" DbType="VarChar(111)" />
-    <Parameter Name="query_response" Type="System.String" DbType="VarChar(200)" />
-    <Parameter Name="query_status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.SP_ORDER_MEDICINE" Method="SP_ORDER_MEDICINE">
     <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
     <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
@@ -188,17 +175,6 @@
     <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
     <Parameter Name="Delivery_address_" Parameter="delivery_address_" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Order_status" Parameter="order_status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.SP_PATIENT_QUERY" Method="SP_PATIENT_QUERY">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="patient_query_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="query_question" Type="System.String" DbType="VarChar(200)" />
-    <Parameter Name="prescription" Type="System.String" DbType="VarChar(111)" />
-    <Parameter Name="query_response" Type="System.String" DbType="VarChar(200)" />
-    <Parameter Name="query_status" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.SP_REPORT" Method="SP_REPORT">
@@ -261,6 +237,26 @@
     <Parameter Name="appointment_time" Type="System.TimeSpan" DbType="Time" />
     <Parameter Name="payment_status" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="appointment_status" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CHEMIST_QUERY" Method="SP_CHEMIST_QUERY">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="chemist_query_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="chemist_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="query_question" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="query_response" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="query_status" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_PATIENT_QUERY" Method="SP_PATIENT_QUERY">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="patient_query_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="query_question" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="query_response" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="query_status" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

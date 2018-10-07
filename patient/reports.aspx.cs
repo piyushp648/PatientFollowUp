@@ -50,7 +50,7 @@ public partial class patient_reports : System.Web.UI.Page
 
             try
             {
-                FileUploadControl.SaveAs(Server.MapPath("~/UploadedReports/") + filename);
+                FileUploadControl.SaveAs(Server.MapPath("~/UploadedReports/") + filename + ".png");
                 lblInfo.Text = "Upload status: File uploaded!";
                 lblInfo.CssClass = "label label-info";
             }
@@ -61,7 +61,7 @@ public partial class patient_reports : System.Web.UI.Page
                 return;
             }
 
-            string path = "~/UploadedReports/" + filename + ".jpeg";
+            string path = "~/UploadedReports/" + filename + ".png";
             if (obj.SP_REPORT(1, pid, reportID,path, txtReportType.Text) == 0)
             {
                 lblInfo.Text = "Upload status: File uploaded!";

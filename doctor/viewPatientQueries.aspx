@@ -29,24 +29,18 @@
 
         <div class="container">
             <h3>Patient Queries</h3>
-            <asp:GridView ID="grdPatientQuery" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+            <asp:GridView ID="grdPatientQuery" runat="server" DataKeyNames="" AutoGenerateColumns="False" CssClass="table table-hover table-bordered" OnSelectedIndexChanged="grdPatientQuery_SelectedIndexChanged1">
                 <Columns>
+                    <asp:TemplateField HeaderText="Sr. No.">
+                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
                     <asp:BoundField DataField="patient_query_id" HeaderText="Query Id" />
                     <asp:BoundField DataField="query_question" HeaderText="Question" />
                     <asp:BoundField DataField="query_status" HeaderText="Query Status" />
-
-
-                    <asp:ButtonField Text=" Respond Query" ButtonType="Button" />
+                    <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default" ButtonType="Button" />
                 </Columns>
-                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                <SortedDescendingHeaderStyle BackColor="#242121" />
+               
             </asp:GridView>
             <div class="col-sm-8">
 
@@ -62,7 +56,7 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6">
-                        <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success" UseSubmitBehavior="false" />
+                        <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success" UseSubmitBehavior="false" OnClick="btnSubmit_Click1" />
 
                         <asp:Label ID="lblInfo" runat="server"></asp:Label>
 

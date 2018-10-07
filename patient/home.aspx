@@ -20,7 +20,7 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="bookAppointment.aspx">Book Appointment</a></li>
                     <li><a href="orderMedicine.aspx">Order Medicine</a></li>
-                    <li><a href="report.aspx">Reports</a></li>
+                    <li><a href="reports.aspx">Reports</a></li>
                     <li><a href="queryDoctor.aspx">Query Doctor</a></li>
 
                 </ul>

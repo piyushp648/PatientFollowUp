@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class patient_queryDoctor : System.Web.UI.Page
 {
+    static int selectedDocId;
     DataClassesDataContext obj = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -14,16 +15,16 @@ public partial class patient_queryDoctor : System.Web.UI.Page
         {
             string emailID = Session["UserID"].ToString();
             lblInfo.Text = emailID;
-            FillDoctorData(emailID);
-           
+            FillDoctorData();
+
             lblInfo.CssClass = "label label-warning";
         }
     }
-      protected void FillDoctorData(string emailID)
+    protected void FillDoctorData()
     {
-      var dataSource = (from d in obj.Doctors
-                          
-                          select new { d.name_, d.degree, d.specialization,d.work_address_ d.phone_no, d.email,d.doctor_id }).ToList();
+        var dataSource = (from d in obj.Doctors
+
+                          select new { d.name_, d.degree, d.specialization,d.phone_no, d.email, d.doctor_id }).ToList();
 
         if (dataSource.Count > 0)
         {
@@ -40,24 +41,28 @@ public partial class patient_queryDoctor : System.Web.UI.Page
 
     protected void grdQueryDoctor_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (txtQuery.Text.Length == 0)
-        {
-            lblInfo.Text = "Please fill the query";
-            lblInfo.CssClass = "label label-danger";
-        }
+        
+        selectedDocId = Convert.ToInt32(grdQueryDoctor.DataKeys[grdQueryDoctor.SelectedRow.RowIndex].Values["doctor_id"].ToString());
     }
     protected void BtnSubmitQuery_Click(object sender, EventArgs e)
 
     {
-       
+        if (txtQuery.Text.Length == 0)
+        {
+            lblInfo.Text = "Please fill the query";
+            lblInfo.CssClass = "label label-danger";
+            txtQuery.Focus();
+            return;
+        }
+
         string emailID = Session["UserID"].ToString();
-        var dataSource = (from d in obj.Patients where d.email.Equals(emailID) select new { d.patient_id }).First();
+        var dataSource = (from d in obj.Patients where d.email.Equals(emailID) select new { d.patient_id }).ToList().First();
 
         int pid = dataSource.patient_id;
 
-        int docid = Convert.ToInt32(grdQueryDoctor.DataKeys[grdQueryDoctor.SelectedRow.RowIndex].Values["doctor_id"].ToString());
+        int docid = selectedDocId;
 
-        if (obj.SP_PATIENT_QUERY(1, 0,pid , docid,txtQuery.Text,"",  "Pending" ) == 0)
+        if (obj.SP_PATIENT_QUERY(1, 0, pid, docid, txtQuery.Text, "", "Pending") == 0)
         {
             lblInfo.Text = "Query registered succesfully";
             lblInfo.CssClass = "label label-success";
@@ -68,3 +73,4 @@ public partial class patient_queryDoctor : System.Web.UI.Page
             lblInfo.CssClass = "label label-danger";
         }
     }
+}
