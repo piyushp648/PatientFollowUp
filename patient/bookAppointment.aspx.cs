@@ -48,8 +48,19 @@ public partial class patient_bookAppointment : System.Web.UI.Page
 
         int pid = 0;
         int docid = Convert.ToInt32(grdDoctors.DataKeys[grdDoctors.SelectedRow.RowIndex].Values["doctor_id"].ToString());
-
-
-       // if(obj.SP_APPOINTMENT(1,0,pid,docid,))
+        int opid = Convert.ToInt32(grdDoctors.DataKeys[grdDoctors.SelectedRow.RowIndex].Values["operator_id"].ToString());
+        DateTime convertedDate = DateTime.Parse(txtAppointmentDate.Text);
+        //DateTime convertedTime = DateTime.Parse(txtAppointmentTime.Text);
+        TimeSpan convertedTime = TimeSpan.Parse(txtAppointmentTime.Text);
+        if (obj.SP_APPOINTMENT(1, 0, pid, docid, opid, 0, convertedDate, convertedTime, "Pending","Booked") == 0)
+        {
+            lblInfo.Text = "Appointment booked succesfully";
+            lblInfo.CssClass = "label label-success";
+        }
+        else
+        {
+            lblInfo.Text = "Database error";
+            lblInfo.CssClass = "label label-danger";
+        }
     }
 }
