@@ -28,8 +28,28 @@
         </nav>
 
         <div class="container">
-            <h3>Inverted Navbar</h3>
-            <p>An inverted navbar is black instead of gray.</p>
+            <h3>Orders</h3>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+                <Columns>
+                    <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
+                    <asp:BoundField DataField="chemist_id" HeaderText="Chemist Id" />
+                    <asp:BoundField DataField="order_id" HeaderText="Order Id" />
+                    <asp:BoundField DataField="order_details" HeaderText="Order Details" />
+                    <asp:BoundField DataField="Dilevery_address_" HeaderText="Address" />
+                    <asp:BoundField DataField="Order_status" HeaderText="Order Status" />
+                    <asp:BoundField DataField="payment_id" HeaderText="Payment Id" />
+                    <asp:BoundField DataField="prescription" HeaderText="Prescription" />
+                    <asp:ButtonField Text="Confirm Order" ButtonType="Button" />
+                </Columns>
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
+            </asp:GridView>
         </div>
     </form>
 </body>

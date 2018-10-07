@@ -22,11 +22,68 @@
                     <li><a href="orderMedicine.aspx">Order Medicine</a></li>
                     <li><a href="report.aspx">Reports</a></li>
                     <li class="active"><a href="queryDoctor.aspx">Query Doctor</a></li>
-
-
                 </ul>
             </div>
         </nav>
+        <div class="container">
+            <div class="col-sm-8">
+
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="txtName" class="required">Search Doctor:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:TextBox runat="server" ID="txtName" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+            <Columns>
+                <asp:BoundField DataField="name_" HeaderText="Name" />
+                <asp:BoundField DataField="degree" HeaderText="Degree" />
+                <asp:BoundField DataField="specialization" HeaderText="Specilization" />
+                <asp:BoundField DataField="work_address_ " HeaderText="Work Address" />
+                <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
+                <asp:BoundField DataField="email" HeaderText="Email Id" />
+            </Columns>
+            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+            <SortedDescendingHeaderStyle BackColor="#242121" />
+        </asp:GridView>
+        <div class="col-sm-8">
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <label for="txtName" class="required">Insert Query:</label>
+                </div>
+                <div class="col-sm-6">
+                </div>
+                <asp:TextBox runat="server" ID="txtQuery" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:Button runat="server" ID="BtnSubmitQuery" Text="Submit Query" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>
