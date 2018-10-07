@@ -14,11 +14,14 @@ public partial class _Default :  System.Web.UI.Page
     }
 
 
-    protected void BtnLogin_Click(object sender, EventArgs e)
+   
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if(txtUsername.Text == "Rajshree" && txtPassword.Text == "1234")
+        if (txtUsername.Text == "Rajshree" && txtPassword.Text == "1234")
         {
             Session["UserID"] = txtUsername.Text;
+            Response.Redirect("/patient/home.aspx");
         }
     }
 }
