@@ -42,7 +42,7 @@
                 <div class="row">
 
                     <div class="col-sm-6 center-block">
-                        <asp:Label runat="server" ID="lblInfo" CssClass=""></asp:Label>
+                        <asp:Label runat="server" ID="lblInfo" CssClass="label label-info" Text="Please upload png/jpeg/pdf files only!"></asp:Label>
                     </div>
                     <div class="col-sm-6"></div>
                 </div>

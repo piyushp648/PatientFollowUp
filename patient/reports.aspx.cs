@@ -29,6 +29,7 @@ public partial class patient_reports : System.Web.UI.Page
             {
                 lblInfo.Text = "Please upload png/jpeg/pdf files only!";
                 lblInfo.CssClass = "label label-danger";
+                Page.ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Only png/jpeg/pdf file allowed!');", true);
                 return;
             }
             string emailID = Session["UserID"].ToString();
