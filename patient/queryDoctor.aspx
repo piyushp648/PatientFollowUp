@@ -27,43 +27,43 @@
             </div>
         </nav>
         <div class="container">
-            <div class="col-sm-8">
 
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="txtName" class="required">Search Doctor:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <asp:TextBox runat="server" ID="txtName" CssClass="form-control"></asp:TextBox>
-                    </div>
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <label for="txtName" class="required">Search Doctor:</label>
                 </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                    </div>
-                    <div class="col-sm-6">
-                        <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-success" UseSubmitBehavior="false" />
-
-
-                    </div>
+                <div class="col-sm-6">
+                    <asp:TextBox runat="server" ID="txtName" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+            <div class="row form-group">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+                </div>
+            </div>
+
         </div>
 
-        <asp:GridView ID="grdQueryDoctor" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" DataKeyNames="doctor_id" OnSelectedIndexChanged="grdQueryDoctor_SelectedIndexChanged">
-            <Columns>
-                <asp:TemplateField HeaderText="Sr. No.">
-                                            <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-                                        </asp:TemplateField>
-                <asp:BoundField DataField="name_" HeaderText="Name" />
-                <asp:BoundField DataField="degree" HeaderText="Degree" />
-                <asp:BoundField DataField="specialization" HeaderText="Specilization" />
-                
-                <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
-                <asp:BoundField DataField="email" HeaderText="Email Id" />
-                <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default btn-block" />
-            </Columns>
-            
-        </asp:GridView>
+        <div class="container">
+            <asp:GridView ID="grdQueryDoctor" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" DataKeyNames="doctor_id" OnSelectedIndexChanged="grdQueryDoctor_SelectedIndexChanged">
+                <Columns>
+                    <asp:TemplateField HeaderText="Sr. No.">
+                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="name_" HeaderText="Name" />
+                    <asp:BoundField DataField="degree" HeaderText="Degree" />
+                    <asp:BoundField DataField="specialization" HeaderText="Specilization" />
+
+                    <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
+                    <asp:BoundField DataField="email" HeaderText="Email Id" />
+                    <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default btn-block" />
+                </Columns>
+
+            </asp:GridView>
+        </div>
         <div class="col-sm-8">
             <div class="row form-group">
                 <div class="col-sm-6">
