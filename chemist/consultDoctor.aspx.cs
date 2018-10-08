@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class chemist_consultDoctor : System.Web.UI.Page
 {
+    static int selectedDocId;
     DataClassesDataContext obj = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -36,19 +37,23 @@ public partial class chemist_consultDoctor : System.Web.UI.Page
             grdConsultDoctor.DataBind();
         }
     }
+    
 
 
-    protected void grdConsultDoctor_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        if (txtQuery.Text.Length == 0)
-        {
-            lblInfo.Text = "Please fill the query";
-            lblInfo.CssClass = "label label-danger";
-        }
-    }
 
     protected void BtnSubmitQuery_Click(object sender, EventArgs e)
     {
+        if(selectedDocId == 0)
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please select a query');", true);
+            return;
+        }
+
+        if(txtQuery.Text.Length == 0)
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please enter a response');", true);
+            return;
+        }
         string emailID = Session["UserID"].ToString();
         var dataSource = (from d in obj.Chemists where d.email.Equals(emailID) select new { d.chemist_id }).First();
 
@@ -66,5 +71,12 @@ public partial class chemist_consultDoctor : System.Web.UI.Page
             lblInfo.Text = "Database error";
             lblInfo.CssClass = "label label-danger";
         }
+    }
+
+
+
+    protected void grdConsultDoctor_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        selectedDocId = Convert.ToInt32(grdConsultDoctor.DataKeys[grdConsultDoctor.SelectedRow.RowIndex].Values["doctor_id"].ToString());
     }
 }

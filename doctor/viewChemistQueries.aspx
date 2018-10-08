@@ -17,29 +17,30 @@
                     <a class="navbar-brand" href="#">Doctor Portal</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li ><a href="#">Home</a></li>
-                   <li><a href="ViewPatient.aspx">View Patient</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="ViewPatient.aspx">View Patient</a></li>
                     <li><a href="ViewPatientQueries.aspx">View Patient Queries</a></li>
                     <li class="active"><a href="ViewChemistQueries.aspx">View Chemist Queries</a></li>
                     <li><a href="../logout.aspx">Logout</a></li>
-                    
+
 
                 </ul>
             </div>
         </nav>
 
-       <div class="container">
+        <div class="container">
             <h3>Patient Queries</h3>
             <asp:GridView ID="grdChemistQueries" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdChemistQueries_SelectedIndexChanged">
                 <Columns>
+                    <asp:TemplateField HeaderText="Sr. No.">
+                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="chemist_id" HeaderText="Chemist Id" />
                     <asp:BoundField DataField="chemist_query_id" HeaderText="Query Id" />
                     <asp:BoundField DataField="query_question" HeaderText="Question" />
                     <asp:BoundField DataField="query_status" HeaderText="Query Status" />
-                    <asp:BoundField DataField="prescription" HeaderText="Prescription" />
 
-
-                    <asp:ButtonField Text=" Respond Query" ButtonType="Button" />
+                    <asp:ButtonField Text=" Respond Query" ButtonType="Button" CommandName="Select" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

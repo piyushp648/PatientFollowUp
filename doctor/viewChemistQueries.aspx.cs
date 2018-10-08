@@ -67,12 +67,12 @@ public partial class doctor_viewChemistQueries : System.Web.UI.Page
         var dataSource = (from d in obj.Doctors where d.email.Equals(emailID) select new { d.doctor_id }).First();
 
         int did = dataSource.doctor_id;
-        var dataSource1 = (from q in obj.Patient_queries
+        var dataSource1 = (from q in obj.Chemist_queries
 
-                           where q.patient_query_id.Equals(selectedChemistQueryId)
-                           select new { q.patient_id, q.patient_query_id, q.query_question, q.query_response }).ToList().First();
+                           where q.chemist_query_id.Equals(selectedChemistQueryId)
+                           select new { q.chemist_id, q.chemist_query_id, q.query_question, q.query_response }).ToList().First();
 
-        if (obj.SP_PATIENT_QUERY(2, selectedChemistQueryId, dataSource1.patient_id, did, dataSource1.query_question, txtQueryResponse.Text, "Query Responded") == 0)
+        if (obj.SP_CHEMIST_QUERY(2, selectedChemistQueryId, dataSource1.chemist_id, did, dataSource1.query_question, txtQueryResponse.Text, "Query Responded") == 0)
         {
             lblInfo.Text = "Query Responded succesfully";
             lblInfo.CssClass = "label label-success";

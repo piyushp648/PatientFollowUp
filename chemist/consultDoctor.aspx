@@ -28,7 +28,7 @@
         </nav>
 
         <div class="container">
-            <div class="col-sm-8">
+            
 
                 <div class="row form-group">
                     <div class="col-sm-6">
@@ -46,37 +46,37 @@
 
 
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <asp:GridView ID="grdConsultDoctor" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdConsultDoctor_SelectedIndexChanged">
-            <Columns>
-                <asp:BoundField DataField="name_" HeaderText="Name" />
-                <asp:BoundField DataField="degree" HeaderText="Degree" />
-                <asp:BoundField DataField="specialization" HeaderText="Specilization" />
                 
-                <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
-                <asp:BoundField DataField="email" HeaderText="Email Id" />
-                <asp:ButtonField ButtonType="Button" Text="Select" />
-            </Columns>
-            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#242121" />
-        </asp:GridView>
-        <div class="col-sm-8">
+            </div>
+            <div class="row">
+                
+                <div class="col-sm-12">
+                    <asp:GridView ID="grdConsultDoctor" runat="server" DataKeyNames="doctor_id" AutoGenerateColumns="false" OnSelectedIndexChanged="grdConsultDoctor_SelectedIndexChanged" CssClass="table table-bordered table-hover">
+                        <Columns>
+                            <asp:BoundField DataField="name_" HeaderText="Name" />
+                            <asp:BoundField DataField="degree" HeaderText="Degree" />
+                            <asp:BoundField DataField="specialization" HeaderText="Specilization" />
+
+                            <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
+                            <asp:BoundField DataField="email" HeaderText="Email Id" />
+                            <asp:ButtonField CommandName="Select" ButtonType="Button" Text="Select" ControlStyle-CssClass="btn btn-block btn-default" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+                
+            </div>
+
+
+
             <div class="row form-group">
                 <div class="col-sm-6">
-                    <label for="txtName" class="required">Insert Query:</label>
+                    <label for="txtName" class="required">Send Query:</label>
                 </div>
                 <div class="col-sm-6">
+                    <asp:TextBox runat="server" ID="txtQuery" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                 </div>
-                <asp:TextBox runat="server" ID="txtQuery" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                </div>
+                
                 <div class="row form-group">
                     <div class="col-sm-6">
                     </div>
@@ -85,9 +85,9 @@
 
                     </div>
                 </div>
-            </div>
-            <asp:Label ID="lblInfo" runat="server" Text=""></asp:Label> 
-        </div>
+            
+            <asp:Label ID="lblInfo" runat="server" Text=""></asp:Label>
+        
     </form>
 </body>
 </html>
