@@ -53,6 +53,14 @@
             </asp:GridView>
         </div>
          <asp:Label ID="lblInfo" runat="server"></asp:Label>
+         <asp:GridView ID="grdViewReport" runat="server" AutoGenerateColumns="False">
+             <Columns>
+                 <asp:BoundField DataField="patient_id" HeaderText="Patient Id"/>
+                 <asp:BoundField DataField="report_id" HeaderText="Report Id"/>
+                 <asp:BoundField DataField="report_type" HeaderText="Report type"/>
+                 <asp:ButtonField ButtonType="Button" Text="View report" />
+             </Columns>
+         </asp:GridView>
     </form>
 </body>
 </html>
