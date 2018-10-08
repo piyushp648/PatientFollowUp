@@ -66,7 +66,7 @@ public partial class admin_addOperator :  System.Web.UI.Page
         {
             if (obj.SP_LOGIN(1, txtEmailID.Text, txtPassword.Text,"Operator") == 0)
             {
-                lblInfo.Text = "Data added successfully!";
+                lblInfo.Text = "Operator registered with doctor successfully!";
                 lblInfo.CssClass = "label label-success";
                 resetFields();
             }

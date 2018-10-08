@@ -66,8 +66,8 @@ public partial class chemist_register : System.Web.UI.Page
             {
                 lblInfo.Text = "Chemist registered succcessfully";
                 lblInfo.CssClass = "label label-success";
-                Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('User registered successfully');", true);
                 resetFields();
+                Session["Prevpage"] = "Reg";
                 Response.Redirect("../chemistLogin.aspx");
             }
 
