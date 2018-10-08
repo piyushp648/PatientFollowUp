@@ -26,8 +26,8 @@
         </nav>
 
         <div class="container">
-            <h3>Inverted Navbar</h3>
-            <p>An inverted navbar is black instead of gray.</p>
+            <h3>Update users</h3>
+            <p></p>
         </div>
     </form>
 </body>

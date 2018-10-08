@@ -20,6 +20,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="viewOrders.aspx">View Order</a></li>
                     <li class="active"><a href="consultDoctor.aspx">Consult Doctor</a></li>
+                    <li><a href="../logout.aspx">Logout</a></li>
 
 
                 </ul>
@@ -54,7 +55,7 @@
                 <asp:BoundField DataField="name_" HeaderText="Name" />
                 <asp:BoundField DataField="degree" HeaderText="Degree" />
                 <asp:BoundField DataField="specialization" HeaderText="Specilization" />
-                <asp:BoundField DataField="work_address_ " HeaderText="Work Address" />
+                
                 <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
                 <asp:BoundField DataField="email" HeaderText="Email Id" />
                 <asp:ButtonField ButtonType="Button" Text="Select" />

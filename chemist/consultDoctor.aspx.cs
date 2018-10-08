@@ -23,7 +23,7 @@ public partial class chemist_consultDoctor : System.Web.UI.Page
     {
         var dataSource = (from d in obj.Doctors
 
-                          select new { d.name_, d.degree, d.specialization,d.work_address_, d.phone_no, d.email, d.doctor_id }).ToList();
+                          select new { d.name_, d.degree, d.specialization, d.phone_no, d.email, d.doctor_id }).ToList();
 
         if (dataSource.Count > 0)
         {

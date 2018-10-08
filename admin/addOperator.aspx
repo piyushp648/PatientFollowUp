@@ -18,12 +18,13 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Admin portal</a>
+                    <a class="navbar-brand" href="adduser.aspx">Admin portal</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="home.aspx">Home</a></li>
                     <li class="active"><a href="#">Add Users</a></li>
-                    <li><a href="updateuser.aspx">Update users</a></li>
+                    <!--<li><a href="updateuser.aspx">Update users</a></li>-->
+                    <li><a href="../logout.aspx">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -91,7 +92,7 @@
 
                      <div class="row form-group">
                         <div class="col-sm-6">
-                            <label for="ddlDoctorId" class="required">Doctor Id:</label>
+                            <label for="ddlDoctorId" class="required">Doctor Name:</label>
                         </div>
                         <div class="col-sm-6">
                             <asp:DropDownList runat="server" ID="ddlDoctor" CssClass="form-control"></asp:DropDownList>

@@ -5,6 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../css/jquery.min.js"></script>
+    <script src="../css/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,6 +20,7 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li ><a href="viewOrders.aspx">View Order</a></li>
                     <li><a href="consultDoctor.aspx">Consult Doctor</a></li>
+                    <li><a href="../logout.aspx">Logout</a></li>
 
 
 

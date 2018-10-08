@@ -55,13 +55,14 @@ public partial class patient_registration : System.Web.UI.Page
         DateTime convertedDOB = DateTime.Parse(txtDOB.Text);
         if (obj.SP_PATIENT(1, 0,  txtName.Text, txtHomeAddress.Text, txtEmailID.Text, txtMobile.Text, convertedDOB, txtMedicalHistory.Text) == 0)
         {
-            if (obj.SP_LOGIN(1, txtEmailID.Text, txtPassword.Text,"Patient") == 0)
+            if (obj.SP_LOGIN(1, txtEmailID.Text, txtPassword.Text, "Patient") == 0)
             {
                 lblInfo.Text = "Patient registered succcessfully";
                 lblInfo.CssClass = "label label-success";
+                Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('User registered successfully');", true);
                 resetFields();
+                Response.Redirect("../patientLogin.aspx");
             }
-
             else
             {
                 lblInfo.Text = "Database error!";

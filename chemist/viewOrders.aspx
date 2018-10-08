@@ -20,6 +20,7 @@
                     <li><a href="#">Home</a></li>
                     <li class="active"><a href="viewOrders.aspx">View Order</a></li>
                     <li><a href="consultDoctor.aspx">Consult Doctor</a></li>
+                    <li><a href="../logout.aspx">Logout</a></li>
 
 
 

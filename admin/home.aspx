@@ -20,7 +20,8 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="adduser.aspx">Add Users</a></li>
-                    <li><a href="updateuser.aspx">Update users</a></li>
+                    <!--<li><a href="updateuser.aspx">Update users</a></li>-->
+                    <li><a href="../logout.aspx">Logout</a></li>
                 </ul>
             </div>
         </nav>

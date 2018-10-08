@@ -21,6 +21,7 @@
                     <li><a href="ViewPatient.aspx">View Patient</a></li>
                     <li class="active"><a href="ViewPatientQueries.aspx">View Patient Queries</a></li>
                     <li><a href="ViewChemistQueries.aspx">View Chemist Query</a></li>
+                    <li><a href="../logout.aspx">Logout</a></li>
 
 
                 </ul>

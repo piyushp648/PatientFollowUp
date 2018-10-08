@@ -21,6 +21,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="updateDoctorProfile.aspx">Update Docotr's Profile</a></li>
                     <li class="active"><a href="viewAppointment.aspx">View Appointment</a></li>
+                    <li><a href="../logout.aspx">Logout</a></li>
 
 
                 </ul>

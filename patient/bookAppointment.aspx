@@ -22,6 +22,7 @@
                     <li><a href="orderMedicine.aspx">Order Medicine</a></li>
                     <li><a href="reports.aspx">Reports</a></li>
                     <li><a href="queryDoctor.aspx">Query Doctor</a></li>
+                    <li><a href="../logout.aspx">Logout</a></li>
 
 
                 </ul>
