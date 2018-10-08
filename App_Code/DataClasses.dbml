@@ -37,19 +37,6 @@
       <Association Name="Chemist_Chemist_query" Member="Chemist_queries" ThisKey="chemist_id" OtherKey="chemist_id" Type="Chemist_query" />
     </Type>
   </Table>
-  <Table Name="dbo.Chemist_query" Member="Chemist_queries">
-    <Type Name="Chemist_query">
-      <Column Name="chemist_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="chemist_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="prescription" Type="System.String" DbType="VarChar(111)" CanBeNull="true" />
-      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Chemist_Chemist_query" Member="Chemist" ThisKey="chemist_id" OtherKey="chemist_id" Type="Chemist" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Doctor_Chemist_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.Doctor" Member="Doctors">
     <Type Name="Doctor">
       <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -64,9 +51,9 @@
       <Column Name="work_address_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="OperatorSet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="doctor_id" OtherKey="doctor_id" Type="Appointment" />
-      <Association Name="Doctor_Chemist_query" Member="Chemist_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Chemist_query" />
       <Association Name="Doctor_Operator" Member="Operators" ThisKey="doctor_id" OtherKey="doctor_id" Type="Operator" />
       <Association Name="Doctor_Patient_query" Member="Patient_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Patient_query" />
+      <Association Name="Doctor_Chemist_query" Member="Chemist_queries" ThisKey="doctor_id" OtherKey="doctor_id" Type="Chemist_query" />
     </Type>
   </Table>
   <Table Name="dbo.Login" Member="Login1s">
@@ -99,21 +86,8 @@
       <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="medical_history" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="Patient_Appointment" Member="Appointments" ThisKey="patient_id" OtherKey="patient_id" Type="Appointment" />
-      <Association Name="Patient_Patient_query" Member="Patient_queries" ThisKey="patient_id" OtherKey="patient_id" Type="Patient_query" />
       <Association Name="Patient_Report" Member="Reports" ThisKey="patient_id" OtherKey="patient_id" Type="Report" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Patient_query" Member="Patient_queries">
-    <Type Name="Patient_query">
-      <Column Name="patient_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="patient_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="prescription" Type="System.String" DbType="VarChar(111)" CanBeNull="true" />
-      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Doctor_Patient_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Patient_Patient_query" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Patient_Patient_query" Member="Patient_queries" ThisKey="patient_id" OtherKey="patient_id" Type="Patient_query" />
     </Type>
   </Table>
   <Table Name="dbo.Payment" Member="Payments">
@@ -132,6 +106,30 @@
       <Column Name="report_image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="report_type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Patient_Report" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Patient_query" Member="Patient_queries">
+    <Type Name="Patient_query">
+      <Column Name="patient_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="patient_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Doctor_Patient_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Patient_Patient_query" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Chemist_query" Member="Chemist_queries">
+    <Type Name="Chemist_query">
+      <Column Name="chemist_query_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="chemist_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="query_question" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_response" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="query_status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Chemist_Chemist_query" Member="Chemist" ThisKey="chemist_id" OtherKey="chemist_id" Type="Chemist" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Doctor_Chemist_query" Member="Doctor" ThisKey="doctor_id" OtherKey="doctor_id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Name="dbo.SP_CHEMIST" Method="SP_CHEMIST">

@@ -38,9 +38,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertChemist(Chemist instance);
   partial void UpdateChemist(Chemist instance);
   partial void DeleteChemist(Chemist instance);
-  partial void InsertChemist_query(Chemist_query instance);
-  partial void UpdateChemist_query(Chemist_query instance);
-  partial void DeleteChemist_query(Chemist_query instance);
   partial void InsertDoctor(Doctor instance);
   partial void UpdateDoctor(Doctor instance);
   partial void DeleteDoctor(Doctor instance);
@@ -53,15 +50,18 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertPatient(Patient instance);
   partial void UpdatePatient(Patient instance);
   partial void DeletePatient(Patient instance);
-  partial void InsertPatient_query(Patient_query instance);
-  partial void UpdatePatient_query(Patient_query instance);
-  partial void DeletePatient_query(Patient_query instance);
   partial void InsertPayment(Payment instance);
   partial void UpdatePayment(Payment instance);
   partial void DeletePayment(Payment instance);
   partial void InsertReport(Report instance);
   partial void UpdateReport(Report instance);
   partial void DeleteReport(Report instance);
+  partial void InsertPatient_query(Patient_query instance);
+  partial void UpdatePatient_query(Patient_query instance);
+  partial void DeletePatient_query(Patient_query instance);
+  partial void InsertChemist_query(Chemist_query instance);
+  partial void UpdateChemist_query(Chemist_query instance);
+  partial void DeleteChemist_query(Chemist_query instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -118,14 +118,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<Chemist_query> Chemist_queries
-	{
-		get
-		{
-			return this.GetTable<Chemist_query>();
-		}
-	}
-	
 	public System.Data.Linq.Table<Doctor> Doctors
 	{
 		get
@@ -158,14 +150,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<Patient_query> Patient_queries
-	{
-		get
-		{
-			return this.GetTable<Patient_query>();
-		}
-	}
-	
 	public System.Data.Linq.Table<Payment> Payments
 	{
 		get
@@ -179,6 +163,22 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<Report>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Patient_query> Patient_queries
+	{
+		get
+		{
+			return this.GetTable<Patient_query>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Chemist_query> Chemist_queries
+	{
+		get
+		{
+			return this.GetTable<Chemist_query>();
 		}
 	}
 	
@@ -1046,294 +1046,6 @@ public partial class Chemist : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Chemist_query")]
-public partial class Chemist_query : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _chemist_query_id;
-	
-	private System.Nullable<int> _chemist_id;
-	
-	private System.Nullable<int> _doctor_id;
-	
-	private string _query_question;
-	
-	private string _prescription;
-	
-	private string _query_response;
-	
-	private string _query_status;
-	
-	private EntityRef<Chemist> _Chemist;
-	
-	private EntityRef<Doctor> _Doctor;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onchemist_query_idChanging(int value);
-    partial void Onchemist_query_idChanged();
-    partial void Onchemist_idChanging(System.Nullable<int> value);
-    partial void Onchemist_idChanged();
-    partial void Ondoctor_idChanging(System.Nullable<int> value);
-    partial void Ondoctor_idChanged();
-    partial void Onquery_questionChanging(string value);
-    partial void Onquery_questionChanged();
-    partial void OnprescriptionChanging(string value);
-    partial void OnprescriptionChanged();
-    partial void Onquery_responseChanging(string value);
-    partial void Onquery_responseChanged();
-    partial void Onquery_statusChanging(string value);
-    partial void Onquery_statusChanged();
-    #endregion
-	
-	public Chemist_query()
-	{
-		this._Chemist = default(EntityRef<Chemist>);
-		this._Doctor = default(EntityRef<Doctor>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_chemist_query_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int chemist_query_id
-	{
-		get
-		{
-			return this._chemist_query_id;
-		}
-		set
-		{
-			if ((this._chemist_query_id != value))
-			{
-				this.Onchemist_query_idChanging(value);
-				this.SendPropertyChanging();
-				this._chemist_query_id = value;
-				this.SendPropertyChanged("chemist_query_id");
-				this.Onchemist_query_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_chemist_id", DbType="Int")]
-	public System.Nullable<int> chemist_id
-	{
-		get
-		{
-			return this._chemist_id;
-		}
-		set
-		{
-			if ((this._chemist_id != value))
-			{
-				if (this._Chemist.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onchemist_idChanging(value);
-				this.SendPropertyChanging();
-				this._chemist_id = value;
-				this.SendPropertyChanged("chemist_id");
-				this.Onchemist_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int")]
-	public System.Nullable<int> doctor_id
-	{
-		get
-		{
-			return this._doctor_id;
-		}
-		set
-		{
-			if ((this._doctor_id != value))
-			{
-				if (this._Doctor.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Ondoctor_idChanging(value);
-				this.SendPropertyChanging();
-				this._doctor_id = value;
-				this.SendPropertyChanged("doctor_id");
-				this.Ondoctor_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_question", DbType="VarChar(200)")]
-	public string query_question
-	{
-		get
-		{
-			return this._query_question;
-		}
-		set
-		{
-			if ((this._query_question != value))
-			{
-				this.Onquery_questionChanging(value);
-				this.SendPropertyChanging();
-				this._query_question = value;
-				this.SendPropertyChanged("query_question");
-				this.Onquery_questionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prescription", DbType="VarChar(111)")]
-	public string prescription
-	{
-		get
-		{
-			return this._prescription;
-		}
-		set
-		{
-			if ((this._prescription != value))
-			{
-				this.OnprescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._prescription = value;
-				this.SendPropertyChanged("prescription");
-				this.OnprescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_response", DbType="VarChar(200)")]
-	public string query_response
-	{
-		get
-		{
-			return this._query_response;
-		}
-		set
-		{
-			if ((this._query_response != value))
-			{
-				this.Onquery_responseChanging(value);
-				this.SendPropertyChanging();
-				this._query_response = value;
-				this.SendPropertyChanged("query_response");
-				this.Onquery_responseChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_status", DbType="VarChar(20)")]
-	public string query_status
-	{
-		get
-		{
-			return this._query_status;
-		}
-		set
-		{
-			if ((this._query_status != value))
-			{
-				this.Onquery_statusChanging(value);
-				this.SendPropertyChanging();
-				this._query_status = value;
-				this.SendPropertyChanged("query_status");
-				this.Onquery_statusChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Chemist_Chemist_query", Storage="_Chemist", ThisKey="chemist_id", OtherKey="chemist_id", IsForeignKey=true, DeleteRule="CASCADE")]
-	public Chemist Chemist
-	{
-		get
-		{
-			return this._Chemist.Entity;
-		}
-		set
-		{
-			Chemist previousValue = this._Chemist.Entity;
-			if (((previousValue != value) 
-						|| (this._Chemist.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Chemist.Entity = null;
-					previousValue.Chemist_queries.Remove(this);
-				}
-				this._Chemist.Entity = value;
-				if ((value != null))
-				{
-					value.Chemist_queries.Add(this);
-					this._chemist_id = value.chemist_id;
-				}
-				else
-				{
-					this._chemist_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Chemist");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Chemist_query", Storage="_Doctor", ThisKey="doctor_id", OtherKey="doctor_id", IsForeignKey=true, DeleteRule="CASCADE")]
-	public Doctor Doctor
-	{
-		get
-		{
-			return this._Doctor.Entity;
-		}
-		set
-		{
-			Doctor previousValue = this._Doctor.Entity;
-			if (((previousValue != value) 
-						|| (this._Doctor.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Doctor.Entity = null;
-					previousValue.Chemist_queries.Remove(this);
-				}
-				this._Doctor.Entity = value;
-				if ((value != null))
-				{
-					value.Chemist_queries.Add(this);
-					this._doctor_id = value.doctor_id;
-				}
-				else
-				{
-					this._doctor_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Doctor");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Doctor")]
 public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 {
@@ -1364,11 +1076,11 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Appointment> _Appointments;
 	
-	private EntitySet<Chemist_query> _Chemist_queries;
-	
 	private EntitySet<Operator> _Operators;
 	
 	private EntitySet<Patient_query> _Patient_queries;
+	
+	private EntitySet<Chemist_query> _Chemist_queries;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1401,9 +1113,9 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 	public Doctor()
 	{
 		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
-		this._Chemist_queries = new EntitySet<Chemist_query>(new Action<Chemist_query>(this.attach_Chemist_queries), new Action<Chemist_query>(this.detach_Chemist_queries));
 		this._Operators = new EntitySet<Operator>(new Action<Operator>(this.attach_Operators), new Action<Operator>(this.detach_Operators));
 		this._Patient_queries = new EntitySet<Patient_query>(new Action<Patient_query>(this.attach_Patient_queries), new Action<Patient_query>(this.detach_Patient_queries));
+		this._Chemist_queries = new EntitySet<Chemist_query>(new Action<Chemist_query>(this.attach_Chemist_queries), new Action<Chemist_query>(this.detach_Chemist_queries));
 		OnCreated();
 	}
 	
@@ -1640,19 +1352,6 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Chemist_query", Storage="_Chemist_queries", ThisKey="doctor_id", OtherKey="doctor_id")]
-	public EntitySet<Chemist_query> Chemist_queries
-	{
-		get
-		{
-			return this._Chemist_queries;
-		}
-		set
-		{
-			this._Chemist_queries.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Operator", Storage="_Operators", ThisKey="doctor_id", OtherKey="doctor_id")]
 	public EntitySet<Operator> Operators
 	{
@@ -1676,6 +1375,19 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Patient_queries.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Chemist_query", Storage="_Chemist_queries", ThisKey="doctor_id", OtherKey="doctor_id")]
+	public EntitySet<Chemist_query> Chemist_queries
+	{
+		get
+		{
+			return this._Chemist_queries;
+		}
+		set
+		{
+			this._Chemist_queries.Assign(value);
 		}
 	}
 	
@@ -1711,18 +1423,6 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 		entity.Doctor = null;
 	}
 	
-	private void attach_Chemist_queries(Chemist_query entity)
-	{
-		this.SendPropertyChanging();
-		entity.Doctor = this;
-	}
-	
-	private void detach_Chemist_queries(Chemist_query entity)
-	{
-		this.SendPropertyChanging();
-		entity.Doctor = null;
-	}
-	
 	private void attach_Operators(Operator entity)
 	{
 		this.SendPropertyChanging();
@@ -1742,6 +1442,18 @@ public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Patient_queries(Patient_query entity)
+	{
+		this.SendPropertyChanging();
+		entity.Doctor = null;
+	}
+	
+	private void attach_Chemist_queries(Chemist_query entity)
+	{
+		this.SendPropertyChanging();
+		entity.Doctor = this;
+	}
+	
+	private void detach_Chemist_queries(Chemist_query entity)
 	{
 		this.SendPropertyChanging();
 		entity.Doctor = null;
@@ -2155,9 +1867,9 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Appointment> _Appointments;
 	
-	private EntitySet<Patient_query> _Patient_queries;
-	
 	private EntitySet<Report> _Reports;
+	
+	private EntitySet<Patient_query> _Patient_queries;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2182,8 +1894,8 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 	public Patient()
 	{
 		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
-		this._Patient_queries = new EntitySet<Patient_query>(new Action<Patient_query>(this.attach_Patient_queries), new Action<Patient_query>(this.detach_Patient_queries));
 		this._Reports = new EntitySet<Report>(new Action<Report>(this.attach_Reports), new Action<Report>(this.detach_Reports));
+		this._Patient_queries = new EntitySet<Patient_query>(new Action<Patient_query>(this.attach_Patient_queries), new Action<Patient_query>(this.detach_Patient_queries));
 		OnCreated();
 	}
 	
@@ -2340,19 +2052,6 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Patient_query", Storage="_Patient_queries", ThisKey="patient_id", OtherKey="patient_id")]
-	public EntitySet<Patient_query> Patient_queries
-	{
-		get
-		{
-			return this._Patient_queries;
-		}
-		set
-		{
-			this._Patient_queries.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Report", Storage="_Reports", ThisKey="patient_id", OtherKey="patient_id")]
 	public EntitySet<Report> Reports
 	{
@@ -2363,6 +2062,19 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Reports.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Patient_query", Storage="_Patient_queries", ThisKey="patient_id", OtherKey="patient_id")]
+	public EntitySet<Patient_query> Patient_queries
+	{
+		get
+		{
+			return this._Patient_queries;
+		}
+		set
+		{
+			this._Patient_queries.Assign(value);
 		}
 	}
 	
@@ -2398,18 +2110,6 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		entity.Patient = null;
 	}
 	
-	private void attach_Patient_queries(Patient_query entity)
-	{
-		this.SendPropertyChanging();
-		entity.Patient = this;
-	}
-	
-	private void detach_Patient_queries(Patient_query entity)
-	{
-		this.SendPropertyChanging();
-		entity.Patient = null;
-	}
-	
 	private void attach_Reports(Report entity)
 	{
 		this.SendPropertyChanging();
@@ -2421,293 +2121,17 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		this.SendPropertyChanging();
 		entity.Patient = null;
 	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Patient_query")]
-public partial class Patient_query : INotifyPropertyChanging, INotifyPropertyChanged
-{
 	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _patient_query_id;
-	
-	private System.Nullable<int> _patient_id;
-	
-	private System.Nullable<int> _doctor_id;
-	
-	private string _query_question;
-	
-	private string _prescription;
-	
-	private string _query_response;
-	
-	private string _query_status;
-	
-	private EntityRef<Doctor> _Doctor;
-	
-	private EntityRef<Patient> _Patient;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onpatient_query_idChanging(int value);
-    partial void Onpatient_query_idChanged();
-    partial void Onpatient_idChanging(System.Nullable<int> value);
-    partial void Onpatient_idChanged();
-    partial void Ondoctor_idChanging(System.Nullable<int> value);
-    partial void Ondoctor_idChanged();
-    partial void Onquery_questionChanging(string value);
-    partial void Onquery_questionChanged();
-    partial void OnprescriptionChanging(string value);
-    partial void OnprescriptionChanged();
-    partial void Onquery_responseChanging(string value);
-    partial void Onquery_responseChanged();
-    partial void Onquery_statusChanging(string value);
-    partial void Onquery_statusChanged();
-    #endregion
-	
-	public Patient_query()
+	private void attach_Patient_queries(Patient_query entity)
 	{
-		this._Doctor = default(EntityRef<Doctor>);
-		this._Patient = default(EntityRef<Patient>);
-		OnCreated();
+		this.SendPropertyChanging();
+		entity.Patient = this;
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_query_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int patient_query_id
+	private void detach_Patient_queries(Patient_query entity)
 	{
-		get
-		{
-			return this._patient_query_id;
-		}
-		set
-		{
-			if ((this._patient_query_id != value))
-			{
-				this.Onpatient_query_idChanging(value);
-				this.SendPropertyChanging();
-				this._patient_query_id = value;
-				this.SendPropertyChanged("patient_query_id");
-				this.Onpatient_query_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="Int")]
-	public System.Nullable<int> patient_id
-	{
-		get
-		{
-			return this._patient_id;
-		}
-		set
-		{
-			if ((this._patient_id != value))
-			{
-				if (this._Patient.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onpatient_idChanging(value);
-				this.SendPropertyChanging();
-				this._patient_id = value;
-				this.SendPropertyChanged("patient_id");
-				this.Onpatient_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int")]
-	public System.Nullable<int> doctor_id
-	{
-		get
-		{
-			return this._doctor_id;
-		}
-		set
-		{
-			if ((this._doctor_id != value))
-			{
-				if (this._Doctor.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Ondoctor_idChanging(value);
-				this.SendPropertyChanging();
-				this._doctor_id = value;
-				this.SendPropertyChanged("doctor_id");
-				this.Ondoctor_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_question", DbType="VarChar(200)")]
-	public string query_question
-	{
-		get
-		{
-			return this._query_question;
-		}
-		set
-		{
-			if ((this._query_question != value))
-			{
-				this.Onquery_questionChanging(value);
-				this.SendPropertyChanging();
-				this._query_question = value;
-				this.SendPropertyChanged("query_question");
-				this.Onquery_questionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prescription", DbType="VarChar(111)")]
-	public string prescription
-	{
-		get
-		{
-			return this._prescription;
-		}
-		set
-		{
-			if ((this._prescription != value))
-			{
-				this.OnprescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._prescription = value;
-				this.SendPropertyChanged("prescription");
-				this.OnprescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_response", DbType="VarChar(200)")]
-	public string query_response
-	{
-		get
-		{
-			return this._query_response;
-		}
-		set
-		{
-			if ((this._query_response != value))
-			{
-				this.Onquery_responseChanging(value);
-				this.SendPropertyChanging();
-				this._query_response = value;
-				this.SendPropertyChanged("query_response");
-				this.Onquery_responseChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_status", DbType="VarChar(20)")]
-	public string query_status
-	{
-		get
-		{
-			return this._query_status;
-		}
-		set
-		{
-			if ((this._query_status != value))
-			{
-				this.Onquery_statusChanging(value);
-				this.SendPropertyChanging();
-				this._query_status = value;
-				this.SendPropertyChanged("query_status");
-				this.Onquery_statusChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Patient_query", Storage="_Doctor", ThisKey="doctor_id", OtherKey="doctor_id", IsForeignKey=true, DeleteRule="CASCADE")]
-	public Doctor Doctor
-	{
-		get
-		{
-			return this._Doctor.Entity;
-		}
-		set
-		{
-			Doctor previousValue = this._Doctor.Entity;
-			if (((previousValue != value) 
-						|| (this._Doctor.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Doctor.Entity = null;
-					previousValue.Patient_queries.Remove(this);
-				}
-				this._Doctor.Entity = value;
-				if ((value != null))
-				{
-					value.Patient_queries.Add(this);
-					this._doctor_id = value.doctor_id;
-				}
-				else
-				{
-					this._doctor_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Doctor");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Patient_query", Storage="_Patient", ThisKey="patient_id", OtherKey="patient_id", IsForeignKey=true, DeleteRule="CASCADE")]
-	public Patient Patient
-	{
-		get
-		{
-			return this._Patient.Entity;
-		}
-		set
-		{
-			Patient previousValue = this._Patient.Entity;
-			if (((previousValue != value) 
-						|| (this._Patient.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Patient.Entity = null;
-					previousValue.Patient_queries.Remove(this);
-				}
-				this._Patient.Entity = value;
-				if ((value != null))
-				{
-					value.Patient_queries.Add(this);
-					this._patient_id = value.patient_id;
-				}
-				else
-				{
-					this._patient_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Patient");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
+		this.SendPropertyChanging();
+		entity.Patient = null;
 	}
 }
 
@@ -3023,6 +2447,534 @@ public partial class Report : INotifyPropertyChanging, INotifyPropertyChanged
 					this._patient_id = default(Nullable<int>);
 				}
 				this.SendPropertyChanged("Patient");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Patient_query")]
+public partial class Patient_query : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _patient_query_id;
+	
+	private System.Nullable<int> _patient_id;
+	
+	private System.Nullable<int> _doctor_id;
+	
+	private string _query_question;
+	
+	private string _query_response;
+	
+	private string _query_status;
+	
+	private EntityRef<Doctor> _Doctor;
+	
+	private EntityRef<Patient> _Patient;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onpatient_query_idChanging(int value);
+    partial void Onpatient_query_idChanged();
+    partial void Onpatient_idChanging(System.Nullable<int> value);
+    partial void Onpatient_idChanged();
+    partial void Ondoctor_idChanging(System.Nullable<int> value);
+    partial void Ondoctor_idChanged();
+    partial void Onquery_questionChanging(string value);
+    partial void Onquery_questionChanged();
+    partial void Onquery_responseChanging(string value);
+    partial void Onquery_responseChanged();
+    partial void Onquery_statusChanging(string value);
+    partial void Onquery_statusChanged();
+    #endregion
+	
+	public Patient_query()
+	{
+		this._Doctor = default(EntityRef<Doctor>);
+		this._Patient = default(EntityRef<Patient>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_query_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int patient_query_id
+	{
+		get
+		{
+			return this._patient_query_id;
+		}
+		set
+		{
+			if ((this._patient_query_id != value))
+			{
+				this.Onpatient_query_idChanging(value);
+				this.SendPropertyChanging();
+				this._patient_query_id = value;
+				this.SendPropertyChanged("patient_query_id");
+				this.Onpatient_query_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="Int")]
+	public System.Nullable<int> patient_id
+	{
+		get
+		{
+			return this._patient_id;
+		}
+		set
+		{
+			if ((this._patient_id != value))
+			{
+				if (this._Patient.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onpatient_idChanging(value);
+				this.SendPropertyChanging();
+				this._patient_id = value;
+				this.SendPropertyChanged("patient_id");
+				this.Onpatient_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int")]
+	public System.Nullable<int> doctor_id
+	{
+		get
+		{
+			return this._doctor_id;
+		}
+		set
+		{
+			if ((this._doctor_id != value))
+			{
+				if (this._Doctor.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Ondoctor_idChanging(value);
+				this.SendPropertyChanging();
+				this._doctor_id = value;
+				this.SendPropertyChanged("doctor_id");
+				this.Ondoctor_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_question", DbType="VarChar(200)")]
+	public string query_question
+	{
+		get
+		{
+			return this._query_question;
+		}
+		set
+		{
+			if ((this._query_question != value))
+			{
+				this.Onquery_questionChanging(value);
+				this.SendPropertyChanging();
+				this._query_question = value;
+				this.SendPropertyChanged("query_question");
+				this.Onquery_questionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_response", DbType="VarChar(200)")]
+	public string query_response
+	{
+		get
+		{
+			return this._query_response;
+		}
+		set
+		{
+			if ((this._query_response != value))
+			{
+				this.Onquery_responseChanging(value);
+				this.SendPropertyChanging();
+				this._query_response = value;
+				this.SendPropertyChanged("query_response");
+				this.Onquery_responseChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_status", DbType="VarChar(20)")]
+	public string query_status
+	{
+		get
+		{
+			return this._query_status;
+		}
+		set
+		{
+			if ((this._query_status != value))
+			{
+				this.Onquery_statusChanging(value);
+				this.SendPropertyChanging();
+				this._query_status = value;
+				this.SendPropertyChanged("query_status");
+				this.Onquery_statusChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Patient_query", Storage="_Doctor", ThisKey="doctor_id", OtherKey="doctor_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Doctor Doctor
+	{
+		get
+		{
+			return this._Doctor.Entity;
+		}
+		set
+		{
+			Doctor previousValue = this._Doctor.Entity;
+			if (((previousValue != value) 
+						|| (this._Doctor.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Doctor.Entity = null;
+					previousValue.Patient_queries.Remove(this);
+				}
+				this._Doctor.Entity = value;
+				if ((value != null))
+				{
+					value.Patient_queries.Add(this);
+					this._doctor_id = value.doctor_id;
+				}
+				else
+				{
+					this._doctor_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Doctor");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Patient_query", Storage="_Patient", ThisKey="patient_id", OtherKey="patient_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Patient Patient
+	{
+		get
+		{
+			return this._Patient.Entity;
+		}
+		set
+		{
+			Patient previousValue = this._Patient.Entity;
+			if (((previousValue != value) 
+						|| (this._Patient.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Patient.Entity = null;
+					previousValue.Patient_queries.Remove(this);
+				}
+				this._Patient.Entity = value;
+				if ((value != null))
+				{
+					value.Patient_queries.Add(this);
+					this._patient_id = value.patient_id;
+				}
+				else
+				{
+					this._patient_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Patient");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Chemist_query")]
+public partial class Chemist_query : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _chemist_query_id;
+	
+	private System.Nullable<int> _chemist_id;
+	
+	private System.Nullable<int> _doctor_id;
+	
+	private string _query_question;
+	
+	private string _query_response;
+	
+	private string _query_status;
+	
+	private EntityRef<Chemist> _Chemist;
+	
+	private EntityRef<Doctor> _Doctor;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onchemist_query_idChanging(int value);
+    partial void Onchemist_query_idChanged();
+    partial void Onchemist_idChanging(System.Nullable<int> value);
+    partial void Onchemist_idChanged();
+    partial void Ondoctor_idChanging(System.Nullable<int> value);
+    partial void Ondoctor_idChanged();
+    partial void Onquery_questionChanging(string value);
+    partial void Onquery_questionChanged();
+    partial void Onquery_responseChanging(string value);
+    partial void Onquery_responseChanged();
+    partial void Onquery_statusChanging(string value);
+    partial void Onquery_statusChanged();
+    #endregion
+	
+	public Chemist_query()
+	{
+		this._Chemist = default(EntityRef<Chemist>);
+		this._Doctor = default(EntityRef<Doctor>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_chemist_query_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int chemist_query_id
+	{
+		get
+		{
+			return this._chemist_query_id;
+		}
+		set
+		{
+			if ((this._chemist_query_id != value))
+			{
+				this.Onchemist_query_idChanging(value);
+				this.SendPropertyChanging();
+				this._chemist_query_id = value;
+				this.SendPropertyChanged("chemist_query_id");
+				this.Onchemist_query_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_chemist_id", DbType="Int")]
+	public System.Nullable<int> chemist_id
+	{
+		get
+		{
+			return this._chemist_id;
+		}
+		set
+		{
+			if ((this._chemist_id != value))
+			{
+				if (this._Chemist.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onchemist_idChanging(value);
+				this.SendPropertyChanging();
+				this._chemist_id = value;
+				this.SendPropertyChanged("chemist_id");
+				this.Onchemist_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int")]
+	public System.Nullable<int> doctor_id
+	{
+		get
+		{
+			return this._doctor_id;
+		}
+		set
+		{
+			if ((this._doctor_id != value))
+			{
+				if (this._Doctor.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Ondoctor_idChanging(value);
+				this.SendPropertyChanging();
+				this._doctor_id = value;
+				this.SendPropertyChanged("doctor_id");
+				this.Ondoctor_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_question", DbType="VarChar(200)")]
+	public string query_question
+	{
+		get
+		{
+			return this._query_question;
+		}
+		set
+		{
+			if ((this._query_question != value))
+			{
+				this.Onquery_questionChanging(value);
+				this.SendPropertyChanging();
+				this._query_question = value;
+				this.SendPropertyChanged("query_question");
+				this.Onquery_questionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_response", DbType="VarChar(200)")]
+	public string query_response
+	{
+		get
+		{
+			return this._query_response;
+		}
+		set
+		{
+			if ((this._query_response != value))
+			{
+				this.Onquery_responseChanging(value);
+				this.SendPropertyChanging();
+				this._query_response = value;
+				this.SendPropertyChanged("query_response");
+				this.Onquery_responseChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_query_status", DbType="VarChar(20)")]
+	public string query_status
+	{
+		get
+		{
+			return this._query_status;
+		}
+		set
+		{
+			if ((this._query_status != value))
+			{
+				this.Onquery_statusChanging(value);
+				this.SendPropertyChanging();
+				this._query_status = value;
+				this.SendPropertyChanged("query_status");
+				this.Onquery_statusChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Chemist_Chemist_query", Storage="_Chemist", ThisKey="chemist_id", OtherKey="chemist_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Chemist Chemist
+	{
+		get
+		{
+			return this._Chemist.Entity;
+		}
+		set
+		{
+			Chemist previousValue = this._Chemist.Entity;
+			if (((previousValue != value) 
+						|| (this._Chemist.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Chemist.Entity = null;
+					previousValue.Chemist_queries.Remove(this);
+				}
+				this._Chemist.Entity = value;
+				if ((value != null))
+				{
+					value.Chemist_queries.Add(this);
+					this._chemist_id = value.chemist_id;
+				}
+				else
+				{
+					this._chemist_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Chemist");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Chemist_query", Storage="_Doctor", ThisKey="doctor_id", OtherKey="doctor_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Doctor Doctor
+	{
+		get
+		{
+			return this._Doctor.Entity;
+		}
+		set
+		{
+			Doctor previousValue = this._Doctor.Entity;
+			if (((previousValue != value) 
+						|| (this._Doctor.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Doctor.Entity = null;
+					previousValue.Chemist_queries.Remove(this);
+				}
+				this._Doctor.Entity = value;
+				if ((value != null))
+				{
+					value.Chemist_queries.Add(this);
+					this._doctor_id = value.doctor_id;
+				}
+				else
+				{
+					this._doctor_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Doctor");
 			}
 		}
 	}
