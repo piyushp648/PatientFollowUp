@@ -52,7 +52,7 @@
 
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <asp:FileUpload runat="server" ID="FileUploadControl"/>
+                            <asp:FileUpload runat="server" ID="FileUploadControl" />
                         </div>
                         <div class="col-sm-6">
                             <asp:Button runat="server" ID="btnUpload" OnClick="btnUpload_Click" Text="Upload" CssClass="btn btn-default" />
@@ -61,16 +61,13 @@
 
                     <div class="row form-group">
                         <div class="col-sm-12">
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                            <asp:GridView ID="grdUploadedReports" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover">
                                 <Columns>
                                     <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
                                     <asp:BoundField DataField="report_id" HeaderText="Report Id" />
                                     <asp:BoundField DataField="report_type" HeaderText="Report Type" />
-
-                                    <asp:ButtonField ButtonType="Button" Text="View Report" />
-
+                                    <asp:ButtonField CommandName="Select" ControlStyle-CssClass="btn btn-default" ButtonType="Button" Text="View Report" />
                                 </Columns>
-
                             </asp:GridView>
                         </div>
                     </div>

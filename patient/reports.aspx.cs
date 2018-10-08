@@ -22,22 +22,27 @@ public partial class patient_reports : System.Web.UI.Page
     {
         if (FileUploadControl.HasFile)
         {
-            if (!(FileUploadControl.PostedFile.ContentType == "image/png"))
+            string fileextension = System.IO.Path.GetExtension(FileUploadControl.FileName);
+            if (!(FileUploadControl.PostedFile.ContentType == "image/png")
+                || !(FileUploadControl.PostedFile.ContentType == "image/jpeg")
+                || !fileextension.ToLower().Equals(".pdf") )
             {
-                lblInfo.Text = "Please upload png files only!";
+                lblInfo.Text = "Please upload png/jpeg/pdf files only!";
                 lblInfo.CssClass = "label label-danger";
                 return;
             }
-                string emailID = Session["UserID"].ToString();
-            var dataSource = (from d in obj.Patients where d.email.Equals(emailID)
-                              select new { d.patient_id, d.name_}).ToList();
+            string emailID = Session["UserID"].ToString();
+            var dataSource = (from d in obj.Patients
+                              where d.email.Equals(emailID)
+                              select new { d.patient_id, d.name_ }).ToList();
 
             int pid = dataSource.First().patient_id;
             string pname = dataSource.First().name_;
-            var dataSource2 = (from d in obj.Reports select new { d.report_id}).ToList();
+            var dataSource2 = (from d in obj.Reports select new { d.report_id }).ToList();
             int reportID = 0;
 
-            if (dataSource2.Count > 0) {
+            if (dataSource2.Count > 0)
+            {
                 reportID = dataSource2.Last().report_id + 1;
             }
             else
@@ -45,7 +50,7 @@ public partial class patient_reports : System.Web.UI.Page
                 reportID = 1000;
             }
 
-            
+
             string filename = reportID + "_" + pid;
 
             try
@@ -54,7 +59,7 @@ public partial class patient_reports : System.Web.UI.Page
                 lblInfo.Text = "Upload status: File uploaded!";
                 lblInfo.CssClass = "label label-info";
             }
-            
+
             catch (Exception ex)
             {
                 lblInfo.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
@@ -62,7 +67,7 @@ public partial class patient_reports : System.Web.UI.Page
             }
 
             string path = "~/UploadedReports/" + filename + ".png";
-            if (obj.SP_REPORT(1, pid, reportID,path, txtReportType.Text) == 0)
+            if (obj.SP_REPORT(1, pid, reportID, path, txtReportType.Text) == 0)
             {
                 lblInfo.Text = "Upload status: File uploaded!";
                 lblInfo.CssClass = "label label-info";
