@@ -10,7 +10,19 @@ public partial class Default3 :  System.Web.UI.Page
     DataClassesDataContext obj = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
+        try
+        {
+            if (Session["Prevpage"].ToString().Equals("Reg"))
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Chemist registered successfully');", true);
+                Session.Clear();
+                Session.RemoveAll();
+            }
+        }
+        catch (Exception ex)
+        {
 
+        }
     }
 
    

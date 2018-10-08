@@ -5,12 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Chemist Registration</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <script src="../css/bootstrap.min.js"></script>
-    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <script src="../css/jquery.min.js"></script>
     <script src="../js/jquery-ui.min.js"></script>
     <link href="../js/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    <script src="../css/bootstrap.min.js"></script>
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/datepickers.js"></script>
+    
+    
 </head>
 <body>
     <form id="form1" runat="server">

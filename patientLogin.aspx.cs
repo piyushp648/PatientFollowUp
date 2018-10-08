@@ -10,7 +10,17 @@ public partial class _Default :  System.Web.UI.Page
     DataClassesDataContext obj = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
+        try { 
+        if (Session["Prevpage"].ToString().Equals("Reg"))
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Patient registered successfully');", true);
+            Session.Clear();
+            Session.RemoveAll();
+        }
+        }catch(Exception ex)
+        {
 
+        }
     }
 
 

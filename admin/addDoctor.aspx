@@ -18,11 +18,11 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="adduser.aspx">Admin portal</a>
+                    <a class="navbar-brand" href="#">Admin portal</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="home.aspx">Home</a></li>
-                    <li class="active"><a href="#">Add Users</a></li>
+                    <li class="active"><a href="adduser.aspx">Add Users</a></li>
                     <!--<li><a href="updateuser.aspx">Update users</a></li>-->
                     <li><a href="../logout.aspx">Logout</a></li>
                 </ul>

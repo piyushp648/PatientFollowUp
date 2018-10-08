@@ -17,7 +17,7 @@
                     <a class="navbar-brand" href="#">Chemist Portal</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="home.aspx">Home</a></li>
                     <li class="active"><a href="viewOrders.aspx">View Order</a></li>
                     <li><a href="consultDoctor.aspx">Consult Doctor</a></li>
                     <li><a href="../logout.aspx">Logout</a></li>

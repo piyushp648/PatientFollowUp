@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -59,7 +60,7 @@ public partial class patient_registration : System.Web.UI.Page
             {
                 lblInfo.Text = "Patient registered succcessfully";
                 lblInfo.CssClass = "label label-success";
-                Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('User registered successfully');", true);
+                Session["Prevpage"] = "Reg";
                 resetFields();
                 Response.Redirect("../patientLogin.aspx");
             }
