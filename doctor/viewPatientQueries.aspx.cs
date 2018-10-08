@@ -56,10 +56,15 @@ public partial class doctor_viewPatientQueries : System.Web.UI.Page
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
+        if(selectedPatientQueryId == 0)
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Please select a query');", true);
+            return;
+        }
         if (txtQueryResponse.Text.Length == 0)
         {
-            lblInfo.Text = "Please fill the query";
-            lblInfo.CssClass = "label label-danger";
+            Page.ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Please fill a response');", true);
+            return;
         }
         string emailID = Session["UserID"].ToString();
         var dataSource = (from d in obj.Doctors where d.email.Equals(emailID) select new { d.doctor_id }).First();
