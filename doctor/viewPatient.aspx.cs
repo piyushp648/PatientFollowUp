@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class doctor_viewPatient : System.Web.UI.Page
 {
+    static int selectedPatientId;
     DataClassesDataContext obj = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -36,5 +37,34 @@ public partial class doctor_viewPatient : System.Web.UI.Page
             grdViewPatient.DataSource = null;
             grdViewPatient.DataBind();
         }
+    }
+
+    protected void grdViewPatient_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int ptId = Convert.ToInt32(grdViewPatient.Rows[grdViewPatient.SelectedRow.RowIndex].Cells[0].Text);
+        selectedPatientId = ptId;
+        lblInfo.Text = "patient  selected";
+        lblInfo.CssClass = "label label-info";
+        fillgrdViewReport(selectedPatientId);
+    }
+    protected void fillgrdViewReport(int selectedPatientId)
+    {
+        
+        var dataSource1 = (from r in obj.Reports
+                           where r.patient_id.Equals(selectedPatientId)
+                           select new { r.patient_id, r.report_id, r.report_image , r.report_type }).ToList();
+
+        if (dataSource1.Count > 0)
+        {
+            grdViewReport.DataSource = dataSource1;
+            grdViewReport.DataBind();
+        }
+        else
+        {
+            grdViewReport.DataSource = null;
+            grdViewReport.DataBind();
+        }
+
+
     }
 }
