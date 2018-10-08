@@ -30,7 +30,7 @@
 
        <div class="container">
             <h3>Patient Queries</h3>
-            <asp:GridView ID="grdChemistQuery" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+            <asp:GridView ID="grdChemistQueries" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdChemistQueries_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="chemist_id" HeaderText="Chemist Id" />
                     <asp:BoundField DataField="chemist_query_id" HeaderText="Query Id" />
@@ -64,7 +64,9 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6">
-                        <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success" UseSubmitBehavior="false" />
+                        <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-success" UseSubmitBehavior="false" OnClick="btnSubmit_Click" />
+
+                        <asp:Label ID="lblInfo" runat="server"></asp:Label>
 
                     </div>
                 </div>

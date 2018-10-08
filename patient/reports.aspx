@@ -68,6 +68,7 @@
                                     <asp:BoundField DataField="report_type" HeaderText="Report Type" />
                                     <asp:ButtonField CommandName="Select" ControlStyle-CssClass="btn btn-default" ButtonType="Button" Text="View Report" />
                                 </Columns>
+
                             </asp:GridView>
                         </div>
                     </div>

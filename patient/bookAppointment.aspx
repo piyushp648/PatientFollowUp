@@ -80,7 +80,7 @@
 
                         <div class="row form-group">
                             <div class="col-sm-12">
-                                <asp:GridView ID="grdDoctors" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" DataKeyNames="doctor_id,operator_id" OnSelectedIndexChanged="grdDoctors_SelectedIndexChanged">
+                                <asp:GridView ID="grdDoctors" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" DataKeyNames="doctor_id,operator_id" OnSelectedIndexChanged="grdDoctors_SelectedIndexChanged" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Sr. No.">
                                             <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -90,8 +90,18 @@
                                         <asp:BoundField DataField="specialization" HeaderText="Specilization" />
                                         <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
                                         <asp:BoundField DataField="email" HeaderText="Email Id" />
-                                        <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default btn-block" />
+                                        <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default btn-block" >
+<ControlStyle CssClass="btn btn-default btn-block"></ControlStyle>
+                                        </asp:ButtonField>
                                     </Columns>
+                                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                    <SortedDescendingHeaderStyle BackColor="#242121" />
                                 </asp:GridView>
                             </div>
                         </div>
