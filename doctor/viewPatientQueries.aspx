@@ -30,7 +30,7 @@
 
         <div class="container">
             <h3>Patient Queries</h3>
-            <asp:GridView ID="grdPatientQuery" runat="server" DataKeyNames="" AutoGenerateColumns="False" CssClass="table table-hover table-bordered" OnSelectedIndexChanged="grdPatientQuery_SelectedIndexChanged1">
+            <asp:GridView ID="grdPatientQuery" runat="server" AutoGenerateColumns="False" CssClass="table table-hover table-bordered table-responsive" OnSelectedIndexChanged="grdPatientQuery_SelectedIndexChanged1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
                 <Columns>
                     <asp:TemplateField HeaderText="Sr. No.">
                         <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -39,8 +39,19 @@
                     <asp:BoundField DataField="patient_query_id" HeaderText="Query Id" />
                     <asp:BoundField DataField="query_question" HeaderText="Question" />
                     <asp:BoundField DataField="query_status" HeaderText="Query Status" />
-                    <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default" ButtonType="Button" />
+                    <asp:ButtonField Text="Select" CommandName="select" ControlStyle-CssClass="btn btn-default" ButtonType="Button" >
+<ControlStyle CssClass="btn btn-default"></ControlStyle>
+                    </asp:ButtonField>
                 </Columns>
+               
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
                
             </asp:GridView>
             <div class="col-sm-8">
