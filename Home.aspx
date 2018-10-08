@@ -30,8 +30,8 @@
 </nav>
   
 <div class="container">
-  <h3>Inverted Navbar</h3>
-  <p>An inverted navbar is black instead of gray.</p>
+  <h3>Welcome!</h3>
+  <p>Please navigate through sections.</p>
 </div>
     </form>
 </body>

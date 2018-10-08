@@ -62,6 +62,15 @@
            
                         </div>
                     </div>
+
+                     <div class="form-group">
+                        
+                        <div class="col-sm-8 col-md-8  col-xs-12">
+                           
+                            
+                           <asp:Label ID="lblInfo" runat="server"></asp:Label>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="col-md-4 col-xs-12"></div>

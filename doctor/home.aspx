@@ -10,8 +10,8 @@
     <script src="../css/bootstrap.min.js"></script>
 </head>
 <body>
-     <form id="form2" runat="server">
-  
+    <form id="form2" runat="server">
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -19,15 +19,21 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                   <li><a href="ViewPatient.aspx">View Patient</a></li>
+                    <li><a href="ViewPatient.aspx">View Patient</a></li>
                     <li><a href="ViewPatientQueries.aspx">View Patient Queries</a></li>
-                    <li ><a href="ViewChemistQueries.aspx">View Chemist Queries</a></li>
-                    
+                    <li><a href="ViewChemistQueries.aspx">View Chemist Queries</a></li>
+
 
                 </ul>
             </div>
         </nav>
-    <asp:Label ID="lblSession" runat="server" Text=""></asp:Label>
-        </form>
+
+        <div class="container">
+            <h3>Welcome!</h3>
+            <p>Please navigate through sections.</p>
+            <asp:Label ID="lblSession" runat="server" Text=""></asp:Label>
+        </div>
+
+    </form>
 </body>
 </html>

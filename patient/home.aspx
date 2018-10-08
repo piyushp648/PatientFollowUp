@@ -26,7 +26,11 @@
                 </ul>
             </div>
         </nav>
-        <asp:Label ID="lblSession" runat="server" Text=""></asp:Label>
+        <div class="container">
+            <h3>Welcome!</h3>
+            <p>Please navigate through sections.</p>
+            <asp:Label ID="lblSession" runat="server" Text=""></asp:Label>
+        </div>
     </form>
 </body>
 </html>
