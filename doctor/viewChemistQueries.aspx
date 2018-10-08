@@ -29,7 +29,7 @@
         </nav>
 
         <div class="container">
-            <h3>Patient Queries</h3>
+            <h3>Chemist queries</h3>
             <asp:GridView ID="grdChemistQueries" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdChemistQueries_SelectedIndexChanged">
                 <Columns>
                     <asp:TemplateField HeaderText="Sr. No.">
