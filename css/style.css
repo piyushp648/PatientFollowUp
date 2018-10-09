@@ -6,8 +6,27 @@
     margin:20vh 20px;
 }
 
+.bgadmin {
+    background: url('../images/admin2.jpg');
+}
+
+.bgoperator {
+    background: url('../images/operator.jpg');
+}
+
+.bgpatient {
+    background: url('../images/patient.jpg');
+}
+
+.bgdoctor {
+    background: url('../images/doctor2.jpg');
+}
+
+.bgchemist {
+    background: url('../images/pills.jpg');
+}
 .bg{
-    background:url('../images/twe_background-1920x1080.jpg');
+    
     background-repeat:no-repeat;
     height:100vh;
     width:100%;
