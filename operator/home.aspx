@@ -5,6 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <script src="../css/jquery.min.js"></script>
+    <script src="../css/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,9 +18,9 @@
                     <a class="navbar-brand" href="#">Operator Portal</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li ><a href="updateDoctorProfile.aspx">Update Docotr's Profile</a></li>
-                    <li><a href="viewAppointment.aspx">View Appointment</a></li>
+                    <li class="active"><a href="home.aspx">Home</a></li>
+                    <li ><a href="updateDoctorsProfile.aspx">Update Docotr's Profile</a></li>
+                    <li><a href="viewAppointments.aspx">View Appointment</a></li>
 
 
                 </ul>

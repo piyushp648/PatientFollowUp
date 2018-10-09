@@ -144,19 +144,6 @@
     <Parameter Name="type" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.SP_APPOINTMENT" Method="SP_APPOINTMENT">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="appointment_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="operator_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="appointment_date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="appointment_time" Type="System.TimeSpan" DbType="Time" />
-    <Parameter Name="payment_status" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="appointment_status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.SP_CHEMIST_QUERY" Method="SP_CHEMIST_QUERY">
     <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
     <Parameter Name="chemist_query_id" Type="System.Int32" DbType="Int" />
@@ -165,20 +152,6 @@
     <Parameter Name="query_question" Type="System.String" DbType="VarChar(200)" />
     <Parameter Name="query_response" Type="System.String" DbType="VarChar(200)" />
     <Parameter Name="query_status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.SP_DOCTOR" Method="SP_DOCTOR">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="registration_no" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="degree" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="specialization" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="work_address_" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.SP_LOGIN" Method="SP_LOGIN">
@@ -246,6 +219,32 @@
     <Parameter Name="report_id" Type="System.Int32" DbType="Int" />
     <Parameter Name="report_image" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="report_type" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_APPOINTMENT" Method="SP_APPOINTMENT">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="appointment_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="operator_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="appointment_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="appointment_time" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="appointment_status" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_DOCTOR" Method="SP_DOCTOR">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="doctor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="registration_no" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="name_" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="address_" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="phone_no" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="degree" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="specialization" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="work_address_" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

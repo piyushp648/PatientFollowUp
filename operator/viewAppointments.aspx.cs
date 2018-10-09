@@ -25,7 +25,7 @@ public partial class operator_viewAppointments : System.Web.UI.Page
         var dataSource = (from a in obj.Appointments
                           join dp in obj.Operators on a.operator_id equals dp.operator_id
                           where dp.email.Equals(emailID)
-                          select new { a.appointment_id, a.patient_id, a.doctor_id, a.appointment_date, a.appointment_time, a.payment_status, a.appointment_status }).ToList();
+                          select new { a.appointment_id, a.patient_id, a.doctor_id, a.appointment_date, a.appointment_time, a.appointment_status }).ToList();
 
         if (dataSource.Count > 0)
         {
@@ -41,6 +41,7 @@ public partial class operator_viewAppointments : System.Web.UI.Page
     }
     protected void grdViewAppointment_SelectedIndexChanged(object sender, EventArgs e)
     {
+        
         string emailID = Session["UserID"].ToString();
         lblInfo.Text = emailID;
         var dataSource = (from a in obj.Appointments
@@ -48,15 +49,14 @@ public partial class operator_viewAppointments : System.Web.UI.Page
                           where dp.email.Equals(emailID)
                           select new { a.appointment_id, a.patient_id, a.doctor_id, a.operator_id, a.payment_id, a.appointment_date, a.appointment_time, a.payment_status, a.appointment_status }).ToList().First();
 
-        if (obj.SP_APPOINTMENT(2, dataSource.appointment_id,dataSource.patient_id, dataSource.doctor_id, dataSource.operator_id, dataSource.payment_id, dataSource.appointment_date, dataSource.appointment_time, "Pending", "Confirmed") == 0)
+        if (obj.SP_APPOINTMENT(2, dataSource.appointment_id,dataSource.patient_id, dataSource.doctor_id, dataSource.operator_id, dataSource.payment_id, dataSource.appointment_date, dataSource.appointment_time, "Confirmed") == 0)
         {
-            lblInfo.Text = "Appointment confirmed succesfully";
-            lblInfo.CssClass = "label label-success";
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Appointment confirmed');", true);
+            FillViewAppointment(emailID);
         }
         else
         {
-            lblInfo.Text = "Database error";
-            lblInfo.CssClass = "label label-danger";
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Database error!');", true);
         }
 
     }

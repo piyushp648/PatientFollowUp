@@ -39,15 +39,8 @@ public partial class doctor_viewPatient : System.Web.UI.Page
         }
     }
 
-    protected void grdViewPatient_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        int ptId = Convert.ToInt32(grdViewPatient.Rows[grdViewPatient.SelectedRow.RowIndex].Cells[0].Text);
-        selectedPatientId = ptId;
-        lblInfo.Text = "patient  selected";
-        lblInfo.CssClass = "label label-info";
-        fillgrdViewReport(selectedPatientId);
-    }
-    protected void fillgrdViewReport(int selectedPatientId)
+    
+    protected void FillReports(int selectedPatientId)
     {
         
         var dataSource1 = (from r in obj.Reports
@@ -66,5 +59,28 @@ public partial class doctor_viewPatient : System.Web.UI.Page
         }
 
 
+    }
+
+
+
+    protected void grdViewPatient_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int ptId = Convert.ToInt32(grdViewPatient.Rows[grdViewPatient.SelectedRow.RowIndex].Cells[0].Text);
+        selectedPatientId = ptId;
+        lblInfo.Text = "Patient selected";
+        lblInfo.CssClass = "label label-info";
+        FillReports(selectedPatientId);
+    }
+
+    protected void grdViewReport_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var reportSource = (from d in obj.Reports
+                            where d.patient_id.Equals(selectedPatientId)
+                            select new {d.report_image}
+                            ).ToList().First();
+        string report_location = reportSource.report_image;
+        string control_string = "window.open('" + report_location + "','_newtab');";
+        Page.ClientScript.RegisterStartupScript(
+        this.GetType(), "OpenWindow", control_string, true);
     }
 }
