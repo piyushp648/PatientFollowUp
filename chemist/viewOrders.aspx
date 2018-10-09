@@ -22,35 +22,49 @@
                     <li><a href="consultDoctor.aspx">Consult Doctor</a></li>
                     <li><a href="../logout.aspx">Logout</a></li>
 
-
-
                 </ul>
             </div>
         </nav>
 
         <div class="container">
             <h3>Orders</h3>
-            <asp:GridView ID="grdViewOrders" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdViewOrders_SelectedIndexChanged">
-                <Columns>
-                    <asp:BoundField DataField="name_" HeaderText="Patient Name" />
-                    
-                    <asp:BoundField DataField="order_id" HeaderText="Order Id" />
-                    <asp:BoundField DataField="order_details" HeaderText="Order Details" />
-                    <asp:BoundField DataField="Delivery_address_" HeaderText="Address" />
-                    <asp:BoundField DataField="Order_status" HeaderText="Order Status" />
-                    <asp:BoundField DataField="prescription" HeaderText="Prescription" />
-                    <asp:ButtonField Text="Confirm Order" ButtonType="Button" CommandName="Select"/>
-                    <asp:ButtonField Text="View Prescription" ButtonType="Button" CommandName="Select" />
-                </Columns>
-                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                <SortedDescendingHeaderStyle BackColor="#242121" />
-            </asp:GridView>
+            <div class="row form-group">
+                <div class="col-sm-12">
+                    <asp:GridView ID="grdViewOrders" runat="server" DataKeyNames="prescription" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered table-hover" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdViewOrders_SelectedIndexChanged">
+                        <Columns>
+                            <asp:BoundField DataField="name_" HeaderText="Patient Name" />
+
+                            <asp:BoundField DataField="order_id" HeaderText="Order Id" />
+                            <asp:BoundField DataField="order_details" HeaderText="Order Details" />
+                            <asp:BoundField DataField="Delivery_address_" HeaderText="Address" />
+                            <asp:BoundField DataField="Order_status" HeaderText="Order Status" />
+                            
+                            <asp:ButtonField Text="Select" ButtonType="Button" CommandName="Select" ControlStyle-CssClass="btn btn-default" />
+
+                        </Columns>
+                        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#242121" />
+                    </asp:GridView>
+                </div>
+            </div>
+            <div class ="row form-group">
+                <div class="col-sm-4">
+                    <asp:Button ID="btnConfirmOrder" runat="server" CssClass="btn btn-success" Text="Confirm Order" OnClick="btnConfirmOrder_Click"/>
+                </div>
+                <div class="col-sm-4">
+                    <asp:Button ID="btnDenyOrder" runat="server" CssClass="btn btn-danger" Text="Deny order" OnClick="btnDenyOrder_Click" />
+
+                </div>
+                <div class="col-sm-4">
+                    <asp:Button ID="btnViewPrescription" runat="server" CssClass="btn btn-info" Text="View prescription" OnClick="btnViewPrescription_Click" />
+                </div>
+            </div>
         </div>
     </form>
 </body>
