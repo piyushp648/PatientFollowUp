@@ -56,7 +56,6 @@
                 </div>
                 <div class="col-sm-6">
                     <asp:Button runat="server" ID="btnOrderMedicine" Text="Order" CssClass="btn btn-success" UseSubmitBehavior="false" />
-
                 </div>
             </div>
         </div>
