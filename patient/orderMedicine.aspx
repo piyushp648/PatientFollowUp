@@ -55,12 +55,52 @@
                     <asp:Button runat="server" ID="btnUploadPrescription" Text="Upload Prescription" CssClass="btn btn-info" UseSubmitBehavior="false" OnClick="btnUploadPrescription_Click" />
                 </div>
                 <div class="col-sm-6">
-                    <asp:Button runat="server" ID="btnOrderMedicine" Text="Order" CssClass="btn btn-success" UseSubmitBehavior="false" />
+                    <asp:Button runat="server" ID="btnOrderMedicine" Text="Order" CssClass="btn btn-success" UseSubmitBehavior="false" OnClick="btnOrderMedicine_Click" />
 
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <asp:GridView ID="grdPrescription" runat="server" DataKeyNames="report_image" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="grdPrescription_SelectedIndexChanged">
+                        <Columns>
+                            <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
+                            <asp:BoundField DataField="report_id" HeaderText="Report Id" />
+                            <asp:BoundField DataField="report_type" HeaderText="Report type" />
+                            <asp:ButtonField ButtonType="Button" Text="Select" CommandName="Select" ControlStyle-CssClass="btn btn-default" />
+                        </Columns>
+                        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#242121" />
+                    </asp:GridView>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <asp:GridView ID="grdShowChemist" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="grdShowChemist_SelectedIndexChanged">
+                        <Columns>
+                            <asp:BoundField DataField="name_" HeaderText="Name" />
+                            <asp:BoundField DataField="address_" HeaderText="Address" />
+                            <asp:BoundField DataField="phone_no" HeaderText="Phone" />
+                            <asp:BoundField DataField="type_" HeaderText="Chemist Type" />
+                            <asp:ButtonField ButtonType="Button" Text="Select" CommandName="Select" ControlStyle-CssClass="btn btn-default" />
+                        </Columns>
+                        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#242121" />
+                    </asp:GridView>
+                </div>
         </div>
-
+        </div>
     </form>
 </body>
 </html>
