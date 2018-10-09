@@ -32,15 +32,15 @@
             <h3>Orders</h3>
             <asp:GridView ID="grdViewOrders" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
                 <Columns>
-                    <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
-                    <asp:BoundField DataField="chemist_id" HeaderText="Chemist Id" />
+                    <asp:BoundField DataField="name_" HeaderText="Patient Name" />
+                    
                     <asp:BoundField DataField="order_id" HeaderText="Order Id" />
                     <asp:BoundField DataField="order_details" HeaderText="Order Details" />
-                    <asp:BoundField DataField="Dilevery_address_" HeaderText="Address" />
+                    <asp:BoundField DataField="Delivery_address_" HeaderText="Address" />
                     <asp:BoundField DataField="Order_status" HeaderText="Order Status" />
                     <asp:BoundField DataField="payment_id" HeaderText="Payment Id" />
                     <asp:BoundField DataField="prescription" HeaderText="Prescription" />
-                    <asp:ButtonField Text="Confirm Order" ButtonType="Button" />
+                    <asp:ButtonField Text="Confirm Order" ButtonType="Button" CommandName="Select"/>
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

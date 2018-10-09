@@ -57,7 +57,7 @@
                 <div class="item">
                     <img src="images/pills.jpg" alt="Chicago" style="width: 100%;" />
                     <div class="carousel-caption" style="top: 10%; bottom: auto">
-                        <h4>Buy medicines from only authorised pharmacist</h4>
+                        <h4>Buy medicines from only authorised pharmacists</h4>
                         <p></p>
                     </div>
                 </div>

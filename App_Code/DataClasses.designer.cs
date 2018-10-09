@@ -62,6 +62,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertChemist_query(Chemist_query instance);
   partial void UpdateChemist_query(Chemist_query instance);
   partial void DeleteChemist_query(Chemist_query instance);
+  partial void InsertOrder_medicine(Order_medicine instance);
+  partial void UpdateOrder_medicine(Order_medicine instance);
+  partial void DeleteOrder_medicine(Order_medicine instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -179,6 +182,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<Chemist_query>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Order_medicine> Order_medicines
+	{
+		get
+		{
+			return this.GetTable<Order_medicine>();
 		}
 	}
 	
@@ -812,6 +823,8 @@ public partial class Chemist : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Chemist_query> _Chemist_queries;
 	
+	private EntitySet<Order_medicine> _Order_medicines;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -837,6 +850,7 @@ public partial class Chemist : INotifyPropertyChanging, INotifyPropertyChanged
 	public Chemist()
 	{
 		this._Chemist_queries = new EntitySet<Chemist_query>(new Action<Chemist_query>(this.attach_Chemist_queries), new Action<Chemist_query>(this.detach_Chemist_queries));
+		this._Order_medicines = new EntitySet<Order_medicine>(new Action<Order_medicine>(this.attach_Order_medicines), new Action<Order_medicine>(this.detach_Order_medicines));
 		OnCreated();
 	}
 	
@@ -1013,6 +1027,19 @@ public partial class Chemist : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Chemist_Order_medicine", Storage="_Order_medicines", ThisKey="chemist_id", OtherKey="chemist_id")]
+	public EntitySet<Order_medicine> Order_medicines
+	{
+		get
+		{
+			return this._Order_medicines;
+		}
+		set
+		{
+			this._Order_medicines.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -1040,6 +1067,18 @@ public partial class Chemist : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Chemist_queries(Chemist_query entity)
+	{
+		this.SendPropertyChanging();
+		entity.Chemist = null;
+	}
+	
+	private void attach_Order_medicines(Order_medicine entity)
+	{
+		this.SendPropertyChanging();
+		entity.Chemist = this;
+	}
+	
+	private void detach_Order_medicines(Order_medicine entity)
 	{
 		this.SendPropertyChanging();
 		entity.Chemist = null;
@@ -1871,6 +1910,8 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Patient_query> _Patient_queries;
 	
+	private EntitySet<Order_medicine> _Order_medicines;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1896,6 +1937,7 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 		this._Reports = new EntitySet<Report>(new Action<Report>(this.attach_Reports), new Action<Report>(this.detach_Reports));
 		this._Patient_queries = new EntitySet<Patient_query>(new Action<Patient_query>(this.attach_Patient_queries), new Action<Patient_query>(this.detach_Patient_queries));
+		this._Order_medicines = new EntitySet<Order_medicine>(new Action<Order_medicine>(this.attach_Order_medicines), new Action<Order_medicine>(this.detach_Order_medicines));
 		OnCreated();
 	}
 	
@@ -2078,6 +2120,19 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Order_medicine", Storage="_Order_medicines", ThisKey="patient_id", OtherKey="patient_id")]
+	public EntitySet<Order_medicine> Order_medicines
+	{
+		get
+		{
+			return this._Order_medicines;
+		}
+		set
+		{
+			this._Order_medicines.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -2133,6 +2188,18 @@ public partial class Patient : INotifyPropertyChanging, INotifyPropertyChanged
 		this.SendPropertyChanging();
 		entity.Patient = null;
 	}
+	
+	private void attach_Order_medicines(Order_medicine entity)
+	{
+		this.SendPropertyChanging();
+		entity.Patient = this;
+	}
+	
+	private void detach_Order_medicines(Order_medicine entity)
+	{
+		this.SendPropertyChanging();
+		entity.Patient = null;
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payment")]
@@ -2151,6 +2218,8 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Appointment> _Appointments;
 	
+	private EntitySet<Order_medicine> _Order_medicines;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2168,6 +2237,7 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 	public Payment()
 	{
 		this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
+		this._Order_medicines = new EntitySet<Order_medicine>(new Action<Order_medicine>(this.attach_Order_medicines), new Action<Order_medicine>(this.detach_Order_medicines));
 		OnCreated();
 	}
 	
@@ -2264,6 +2334,19 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Order_medicine", Storage="_Order_medicines", ThisKey="payment_id", OtherKey="payment_id")]
+	public EntitySet<Order_medicine> Order_medicines
+	{
+		get
+		{
+			return this._Order_medicines;
+		}
+		set
+		{
+			this._Order_medicines.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -2291,6 +2374,18 @@ public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Appointments(Appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.Payment = null;
+	}
+	
+	private void attach_Order_medicines(Order_medicine entity)
+	{
+		this.SendPropertyChanging();
+		entity.Payment = this;
+	}
+	
+	private void detach_Order_medicines(Order_medicine entity)
 	{
 		this.SendPropertyChanging();
 		entity.Payment = null;
@@ -2975,6 +3070,359 @@ public partial class Chemist_query : INotifyPropertyChanging, INotifyPropertyCha
 					this._doctor_id = default(Nullable<int>);
 				}
 				this.SendPropertyChanged("Doctor");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Order_medicine")]
+public partial class Order_medicine : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private System.Nullable<int> _patient_id;
+	
+	private System.Nullable<int> _chemist_id;
+	
+	private int _order_id;
+	
+	private string _prescription;
+	
+	private string _order_details;
+	
+	private System.Nullable<int> _payment_id;
+	
+	private string _Delivery_address_;
+	
+	private string _Order_status;
+	
+	private EntityRef<Chemist> _Chemist;
+	
+	private EntityRef<Patient> _Patient;
+	
+	private EntityRef<Payment> _Payment;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onpatient_idChanging(System.Nullable<int> value);
+    partial void Onpatient_idChanged();
+    partial void Onchemist_idChanging(System.Nullable<int> value);
+    partial void Onchemist_idChanged();
+    partial void Onorder_idChanging(int value);
+    partial void Onorder_idChanged();
+    partial void OnprescriptionChanging(string value);
+    partial void OnprescriptionChanged();
+    partial void Onorder_detailsChanging(string value);
+    partial void Onorder_detailsChanged();
+    partial void Onpayment_idChanging(System.Nullable<int> value);
+    partial void Onpayment_idChanged();
+    partial void OnDelivery_address_Changing(string value);
+    partial void OnDelivery_address_Changed();
+    partial void OnOrder_statusChanging(string value);
+    partial void OnOrder_statusChanged();
+    #endregion
+	
+	public Order_medicine()
+	{
+		this._Chemist = default(EntityRef<Chemist>);
+		this._Patient = default(EntityRef<Patient>);
+		this._Payment = default(EntityRef<Payment>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="Int")]
+	public System.Nullable<int> patient_id
+	{
+		get
+		{
+			return this._patient_id;
+		}
+		set
+		{
+			if ((this._patient_id != value))
+			{
+				if (this._Patient.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onpatient_idChanging(value);
+				this.SendPropertyChanging();
+				this._patient_id = value;
+				this.SendPropertyChanged("patient_id");
+				this.Onpatient_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_chemist_id", DbType="Int")]
+	public System.Nullable<int> chemist_id
+	{
+		get
+		{
+			return this._chemist_id;
+		}
+		set
+		{
+			if ((this._chemist_id != value))
+			{
+				if (this._Chemist.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onchemist_idChanging(value);
+				this.SendPropertyChanging();
+				this._chemist_id = value;
+				this.SendPropertyChanged("chemist_id");
+				this.Onchemist_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int order_id
+	{
+		get
+		{
+			return this._order_id;
+		}
+		set
+		{
+			if ((this._order_id != value))
+			{
+				this.Onorder_idChanging(value);
+				this.SendPropertyChanging();
+				this._order_id = value;
+				this.SendPropertyChanged("order_id");
+				this.Onorder_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prescription", DbType="VarChar(111)")]
+	public string prescription
+	{
+		get
+		{
+			return this._prescription;
+		}
+		set
+		{
+			if ((this._prescription != value))
+			{
+				this.OnprescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._prescription = value;
+				this.SendPropertyChanged("prescription");
+				this.OnprescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_details", DbType="VarChar(100)")]
+	public string order_details
+	{
+		get
+		{
+			return this._order_details;
+		}
+		set
+		{
+			if ((this._order_details != value))
+			{
+				this.Onorder_detailsChanging(value);
+				this.SendPropertyChanging();
+				this._order_details = value;
+				this.SendPropertyChanged("order_details");
+				this.Onorder_detailsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payment_id", DbType="Int")]
+	public System.Nullable<int> payment_id
+	{
+		get
+		{
+			return this._payment_id;
+		}
+		set
+		{
+			if ((this._payment_id != value))
+			{
+				if (this._Payment.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onpayment_idChanging(value);
+				this.SendPropertyChanging();
+				this._payment_id = value;
+				this.SendPropertyChanged("payment_id");
+				this.Onpayment_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Delivery_address_", DbType="VarChar(50)")]
+	public string Delivery_address_
+	{
+		get
+		{
+			return this._Delivery_address_;
+		}
+		set
+		{
+			if ((this._Delivery_address_ != value))
+			{
+				this.OnDelivery_address_Changing(value);
+				this.SendPropertyChanging();
+				this._Delivery_address_ = value;
+				this.SendPropertyChanged("Delivery_address_");
+				this.OnDelivery_address_Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_status", DbType="VarChar(20)")]
+	public string Order_status
+	{
+		get
+		{
+			return this._Order_status;
+		}
+		set
+		{
+			if ((this._Order_status != value))
+			{
+				this.OnOrder_statusChanging(value);
+				this.SendPropertyChanging();
+				this._Order_status = value;
+				this.SendPropertyChanged("Order_status");
+				this.OnOrder_statusChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Chemist_Order_medicine", Storage="_Chemist", ThisKey="chemist_id", OtherKey="chemist_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Chemist Chemist
+	{
+		get
+		{
+			return this._Chemist.Entity;
+		}
+		set
+		{
+			Chemist previousValue = this._Chemist.Entity;
+			if (((previousValue != value) 
+						|| (this._Chemist.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Chemist.Entity = null;
+					previousValue.Order_medicines.Remove(this);
+				}
+				this._Chemist.Entity = value;
+				if ((value != null))
+				{
+					value.Order_medicines.Add(this);
+					this._chemist_id = value.chemist_id;
+				}
+				else
+				{
+					this._chemist_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Chemist");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Order_medicine", Storage="_Patient", ThisKey="patient_id", OtherKey="patient_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Patient Patient
+	{
+		get
+		{
+			return this._Patient.Entity;
+		}
+		set
+		{
+			Patient previousValue = this._Patient.Entity;
+			if (((previousValue != value) 
+						|| (this._Patient.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Patient.Entity = null;
+					previousValue.Order_medicines.Remove(this);
+				}
+				this._Patient.Entity = value;
+				if ((value != null))
+				{
+					value.Order_medicines.Add(this);
+					this._patient_id = value.patient_id;
+				}
+				else
+				{
+					this._patient_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Patient");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Order_medicine", Storage="_Payment", ThisKey="payment_id", OtherKey="payment_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Payment Payment
+	{
+		get
+		{
+			return this._Payment.Entity;
+		}
+		set
+		{
+			Payment previousValue = this._Payment.Entity;
+			if (((previousValue != value) 
+						|| (this._Payment.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Payment.Entity = null;
+					previousValue.Order_medicines.Remove(this);
+				}
+				this._Payment.Entity = value;
+				if ((value != null))
+				{
+					value.Order_medicines.Add(this);
+					this._payment_id = value.payment_id;
+				}
+				else
+				{
+					this._payment_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Payment");
 			}
 		}
 	}
