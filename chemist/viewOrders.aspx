@@ -30,7 +30,7 @@
 
         <div class="container">
             <h3>Orders</h3>
-            <asp:GridView ID="grdViewOrders" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+            <asp:GridView ID="grdViewOrders" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdViewOrders_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="name_" HeaderText="Patient Name" />
                     
