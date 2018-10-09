@@ -28,50 +28,39 @@
             </div>
         </nav>
         <div class="container">
-            <div id="add" class="container">
 
-                <div class="row">
-                    <br />
-                    <div class="col-sm-8">
 
-                        <div class="row form-group">
-                            <div class="col-sm-6">
-                                <label for="txtName" class="required">Order Details:</label>
-                            </div>
-                            <div class="col-sm-6">
-                                <asp:TextBox runat="server" ID="txtOrderDetails" CssClass="form-control" required=""></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <label for="txtName" class="required">Order Details:</label>
                 </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="txtName" class="required">Delivery Address:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <asp:TextBox runat="server" ID="txtDeliveryAddress" CssClass="form-control" required=""></asp:TextBox>
-                    </div>
+                <div class="col-sm-6">
+                    <asp:TextBox runat="server" ID="txtOrderDetails" CssClass="form-control" required=""></asp:TextBox>
                 </div>
+            </div>
 
+
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <label for="txtName" class="required">Delivery Address:</label>
+                </div>
+                <div class="col-sm-6">
+                    <asp:TextBox runat="server" ID="txtDeliveryAddress" CssClass="form-control" required=""></asp:TextBox>
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <asp:Button runat="server" ID="btnUploadPrescription" Text="Upload Prescription" CssClass="btn btn-info" UseSubmitBehavior="false" OnClick="btnUploadPrescription_Click" />
+                </div>
+                <div class="col-sm-6">
+                    <asp:Button runat="server" ID="btnOrderMedicine" Text="Order" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+                </div>
             </div>
         </div>
 
-        <div class="row form-group">
-            <div class="col-sm-6">
-            </div>
-            <div class="col-sm-6">
-                <asp:Button runat="server" ID="btnUploadPrescription" Text="Upload Prescription" CssClass="btn btn-success" UseSubmitBehavior="false" />
-
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col-sm-6">
-            </div>
-            <div class="col-sm-6">
-                <asp:Button runat="server" ID="btnOrderMedicine" Text="Order" CssClass="btn btn-success" UseSubmitBehavior="false" />
-
-            </div>
-        </div>
     </form>
 </body>
 </html>

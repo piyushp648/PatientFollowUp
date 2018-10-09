@@ -36,7 +36,7 @@
                         <asp:Label runat="server" Text="Enter report type"></asp:Label>
                     </div>
                     <div class="col-sm-6">
-                        <asp:TextBox runat="server" ID="txtReportType" CssClass="form-control"></asp:TextBox>
+                        <asp:DropDownList ID="ddlReportType" runat="server" CssClass="form-control"></asp:DropDownList>
                     </div>
                 </div>
                 <div class="row">

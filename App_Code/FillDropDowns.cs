@@ -40,4 +40,19 @@ public class FillDropDowns
         
     }
 
+    public static void FillReportTypes(DropDownList ddl)
+    {
+        ddl.Items.Clear();
+        ddl.Items.Insert(0, new ListItem("--SELECT--", "0"));
+        ddl.Items.Add(new ListItem("Prescription", "1"));
+        ddl.Items.Add(new ListItem("MRI Scan", "2"));
+        ddl.Items.Add(new ListItem("Blood test report", "3"));
+        ddl.Items.Add(new ListItem("Urine test report", "4"));
+        ddl.Items.Add(new ListItem("ECG Report", "5"));
+        ddl.Items.Add(new ListItem("CT Scan", "6"));
+        ddl.Items.Add(new ListItem("X-Ray Scan", "7"));
+        ddl.DataBind();
+        
+    }
+
 }

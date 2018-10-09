@@ -13,6 +13,7 @@ public partial class patient_reports : System.Web.UI.Page
         if (!IsPostBack)
         {
             FillUploadedReports();
+            FillDropDowns.FillReportTypes(ddlReportType);
         }
     }
 
@@ -23,8 +24,15 @@ public partial class patient_reports : System.Web.UI.Page
 
     protected void btnUpload_Click(object sender, EventArgs e)
     {
+        if (Convert.ToInt32(ddlReportType.SelectedItem.Value) == 0)
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please select a valid report type');", true);
+            ddlReportType.Focus();
+            return;
+        }
         if (FileUploadControl.HasFile)
         {
+            
             string fileextension = System.IO.Path.GetExtension(FileUploadControl.FileName);
             if (!(FileUploadControl.PostedFile.ContentType == "image/png")
                 && !(FileUploadControl.PostedFile.ContentType == "image/jpeg")
@@ -72,7 +80,7 @@ public partial class patient_reports : System.Web.UI.Page
             }
 
             string path = "../UploadedReports/" + filename + ".png";
-            if (obj.SP_REPORT(1, pid, reportID, path, txtReportType.Text) == 0)
+            if (obj.SP_REPORT(1, pid, reportID, path, ddlReportType.SelectedItem.Text) == 0)
             {
                 lblInfo.Text = "Upload status: File uploaded!";
                 lblInfo.CssClass = "label label-info";
