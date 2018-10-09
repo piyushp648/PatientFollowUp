@@ -28,66 +28,39 @@
             </div>
         </nav>
         <div class="container">
-            <div id="add" class="container">
 
-                <div class="row">
-                    <br />
-                    <div class="col-sm-8">
 
-                        <div class="row form-group">
-                            <div class="col-sm-6">
-                                <label for="txtName" class="required">Order Details:</label>
-                            </div>
-                            <div class="col-sm-6">
-                                <asp:TextBox runat="server" ID="txtOrderDetails" CssClass="form-control" required=""></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <label for="txtName" class="required">Order Details:</label>
                 </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="txtName" class="required">Delivery Address:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <asp:TextBox runat="server" ID="txtDeliveryAddress" CssClass="form-control" required=""></asp:TextBox>
-                    </div>
+                <div class="col-sm-6">
+                    <asp:TextBox runat="server" ID="txtOrderDetails" CssClass="form-control" required=""></asp:TextBox>
                 </div>
+            </div>
 
+
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <label for="txtName" class="required">Delivery Address:</label>
+                </div>
+                <div class="col-sm-6">
+                    <asp:TextBox runat="server" ID="txtDeliveryAddress" CssClass="form-control" required=""></asp:TextBox>
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <asp:Button runat="server" ID="btnUploadPrescription" Text="Upload Prescription" CssClass="btn btn-info" UseSubmitBehavior="false" OnClick="btnUploadPrescription_Click" />
+                </div>
+                <div class="col-sm-6">
+                    <asp:Button runat="server" ID="btnOrderMedicine" Text="Order" CssClass="btn btn-success" UseSubmitBehavior="false" />
+
+                </div>
             </div>
         </div>
 
-        <div class="row form-group">
-            <div class="col-sm-6">
-            </div>
-            <div class="col-sm-6">
-                <asp:Button runat="server" ID="btnUploadPrescription" Text="Upload Prescription" CssClass="btn btn-success" UseSubmitBehavior="false" />
-
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col-sm-6">
-            </div>
-            <div class="col-sm-6">
-                <asp:Button runat="server" ID="btnOrderMedicine" Text="Order" CssClass="btn btn-success" UseSubmitBehavior="false" />
-
-            </div>
-        </div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
-            <Columns>
-                <asp:BoundField  DataField="patient_id" HeaderText="Patient Id" />
-                <asp:BoundField  DataField="report_id" HeaderText="Report Id" />
-                <asp:BoundField  DataField="report_type" HeaderText="Report type"  />
-                <asp:ButtonField ButtonType="Button" Text="Select" />
-            </Columns>
-            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#242121" />
-        </asp:GridView>
     </form>
 </body>
 </html>

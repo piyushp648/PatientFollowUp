@@ -6,8 +6,9 @@
 <head runat="server">
     <title></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <script src="../css/bootstrap.min.js"></script>
     <script src="../css/jquery.min.js"></script>
+    <script src="../css/bootstrap.min.js"></script>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,9 +19,9 @@
                     <a class="navbar-brand" href="#">Operator Portal</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="updateDoctorProfile.aspx">Update Docotr's Profile</a></li>
-                    <li class="active"><a href="viewAppointment.aspx">View Appointment</a></li>
+                    <li><a href="home.aspx">Home</a></li>
+                    <li><a href="updateDoctorsProfile.aspx">Update Docotr's Profile</a></li>
+                    <li class="active"><a href="viewAppointments.aspx">View Appointment</a></li>
                     <li><a href="../logout.aspx">Logout</a></li>
 
 
@@ -36,12 +37,11 @@
                      <asp:BoundField DataField="appointment_id" HeaderText="Appointment Id" />
                     <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
                     <asp:BoundField DataField="doctor_id" HeaderText="Doctor Id" />
-                    <asp:BoundField DataField="date" HeaderText="Date" />
-                    <asp:BoundField DataField="time" HeaderText="Time" />
-                    <asp:BoundField DataField="payment_status" HeaderText="Payment status" />
+                    <asp:BoundField DataField="appointment_date" HeaderText="Date" />
+                    <asp:BoundField DataField="appointment_time" HeaderText="Time" />
                     <asp:BoundField DataField="appointment_status" HeaderText="Appointment Status" />
                    
-                    <asp:ButtonField Text="Confirm Appoinment" ButtonType="Button" />
+                    <asp:ButtonField Text="Confirm Appoinment" CommandName="Select" ButtonType="Button" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

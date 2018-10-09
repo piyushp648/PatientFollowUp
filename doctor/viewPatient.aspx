@@ -30,15 +30,16 @@
         </nav>
      <div class="container">
             <h3>Appointment Scheduled</h3>
-            <asp:GridView ID="grdViewPatient" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px">
+            <asp:GridView ID="grdViewPatient" runat="server" AutoGenerateColumns="False" Width="1028px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="auto-style1" ForeColor="Black" GridLines="Horizontal" Height="195px" OnSelectedIndexChanged="grdViewPatient_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
-                    <asp:BoundField DataField="name" HeaderText="Name" />
+                    <asp:BoundField DataField="name_" HeaderText="Name" />
                     <asp:BoundField DataField="phone_no" HeaderText="Contact Number" />
                     <asp:BoundField DataField="date_of_birth" HeaderText="Date Of Birth" />
                     <asp:BoundField DataField="medical_history" HeaderText="Medical History" />
-                    <asp:BoundField DataField="date" HeaderText="Appointmant Date" />
-                    <asp:BoundField DataField="time" HeaderText="Appointment time" />
+                    <asp:BoundField DataField="appointment_date" HeaderText="Appointmant Date" />
+                    <asp:BoundField DataField="appointment_time" HeaderText="Appointment time" />
+                    <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-default" />
                    
                     
                 </Columns>
@@ -53,12 +54,12 @@
             </asp:GridView>
         </div>
          <asp:Label ID="lblInfo" runat="server"></asp:Label>
-         <asp:GridView ID="grdViewReport" runat="server" AutoGenerateColumns="False">
+         <asp:GridView ID="grdViewReport" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="grdViewReport_SelectedIndexChanged">
              <Columns>
                  <asp:BoundField DataField="patient_id" HeaderText="Patient Id"/>
                  <asp:BoundField DataField="report_id" HeaderText="Report Id"/>
                  <asp:BoundField DataField="report_type" HeaderText="Report type"/>
-                 <asp:ButtonField ButtonType="Button" Text="View report" />
+                 <asp:ButtonField ButtonType="Button" CommandName="Select" Text="View report" ControlStyle-CssClass="btn btn-default" />
              </Columns>
          </asp:GridView>
     </form>

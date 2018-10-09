@@ -11,4 +11,9 @@ public partial class patient_orderMedicine : System.Web.UI.Page
     {
 
     }
+
+    protected void btnUploadPrescription_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/reports.aspx");
+    }
 }

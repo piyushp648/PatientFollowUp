@@ -41,12 +41,11 @@ public partial class patient_bookAppointment : System.Web.UI.Page
     {
         if(txtAppointmentDate.Text.Length == 0)
         {
-            lblInfo.Text = "Please fill appointment date";
-            lblInfo.CssClass = "label label-danger";
-        }else if(txtAppointmentTime.Text.Length == 0)
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please enter appointment date');", true);
+        }
+        else if(txtAppointmentTime.Text.Length == 0)
         {
-            lblInfo.Text = "Please fill appointment time";
-            lblInfo.CssClass = "label label-danger";
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please enter appointment date');", true);
         }
 
 
@@ -61,15 +60,18 @@ public partial class patient_bookAppointment : System.Web.UI.Page
         DateTime convertedDate = DateTime.Parse(txtAppointmentDate.Text);
         //DateTime convertedTime = DateTime.Parse(txtAppointmentTime.Text);
         TimeSpan convertedTime = TimeSpan.Parse(txtAppointmentTime.Text);
-        if (obj.SP_APPOINTMENT(1, 0, pid, docid, opid,400 , convertedDate, convertedTime, "Pending","Booked") == 0)
+
+        
+        
+        if (obj.SP_APPOINTMENT(1, 0, pid, docid, opid, 400, convertedDate, convertedTime,"Booked") == 0)
         {
-            lblInfo.Text = "Appointment booked succesfully";
-            lblInfo.CssClass = "label label-success";
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Appointment Booked successfully');", true);
+            
         }
         else
         {
-            lblInfo.Text = "Database error";
-            lblInfo.CssClass = "label label-danger";
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Database error');", true);
+            
         }
     }
 }

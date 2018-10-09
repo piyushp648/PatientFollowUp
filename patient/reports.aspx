@@ -36,7 +36,7 @@
                         <asp:Label runat="server" Text="Enter report type"></asp:Label>
                     </div>
                     <div class="col-sm-6">
-                        <asp:TextBox runat="server" ID="txtReportType" CssClass="form-control"></asp:TextBox>
+                        <asp:DropDownList ID="ddlReportType" runat="server" CssClass="form-control"></asp:DropDownList>
                     </div>
                 </div>
                 <div class="row">
@@ -61,14 +61,15 @@
 
                     <div class="row form-group">
                         <div class="col-sm-12">
-                            <asp:GridView ID="grdUploadedReports" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover">
+                            <asp:GridView ID="grdUploadedReports" runat="server" AutoGenerateColumns="False" DataKeyNames="report_image" CssClass="table table-bordered table-hover" OnSelectedIndexChanged="grdUploadedReports_SelectedIndexChanged">
                                 <Columns>
-                                    <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
+                                    <asp:TemplateField HeaderText="Sr. No.">
+                                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:BoundField DataField="report_id" HeaderText="Report Id" />
                                     <asp:BoundField DataField="report_type" HeaderText="Report Type" />
                                     <asp:ButtonField CommandName="Select" ControlStyle-CssClass="btn btn-default" ButtonType="Button" Text="View Report" />
                                 </Columns>
-
                             </asp:GridView>
                         </div>
                     </div>
