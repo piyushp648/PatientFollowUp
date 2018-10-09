@@ -190,18 +190,6 @@
     <Parameter Name="date_of_birth" Type="System.DateTime" DbType="Date" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.SP_ORDER_MEDICINE" Method="SP_ORDER_MEDICINE">
-    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
-    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="chemist_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="order_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="prescription" Type="System.String" DbType="VarChar(111)" />
-    <Parameter Name="order_details" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Delivery_address_" Parameter="delivery_address_" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Order_status" Parameter="order_status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.SP_PATIENT" Method="SP_PATIENT">
     <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
     <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
@@ -263,6 +251,18 @@
     <Parameter Name="degree" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="specialization" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="work_address_" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ORDER_MEDICINE" Method="SP_ORDER_MEDICINE">
+    <Parameter Name="ACTION" Parameter="aCTION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="patient_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="chemist_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="order_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="prescription" Type="System.String" DbType="VarChar(111)" />
+    <Parameter Name="order_details" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="payment_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Delivery_address_" Parameter="delivery_address_" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Order_status" Parameter="order_status" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

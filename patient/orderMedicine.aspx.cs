@@ -17,14 +17,15 @@ public partial class patient_orderMedicine : System.Web.UI.Page
         string emailID = Session["UserID"].ToString();
         var dataSource = (from d in obj.Patients where d.email.Equals(emailID) select new { d.patient_id }).First();
 
-         pid = dataSource.patient_id;
+        pid = dataSource.patient_id;
         FillgrdPrescription(pid);
         FillgrdShowChemist();
+        
     }
 
     protected void btnUploadPrescription_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/reports.aspx");
+        Response.Redirect("reports.aspx");
     }
     protected void FillgrdPrescription(int pid)
     {
@@ -57,7 +58,8 @@ public partial class patient_orderMedicine : System.Web.UI.Page
             Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please enter Address');", true);
         }
 
-        SelectedReportID = Convert.ToInt32(grdPrescription.DataKeys[grdPrescription.SelectedRow.RowIndex].Values["report_id"].ToString());
+        SelectedReportID = Convert.ToInt32(grdPrescription.Rows[grdPrescription.SelectedRow.RowIndex].Cells[1].Text);
+       
         SelectedReportImage = grdPrescription.DataKeys[grdPrescription.SelectedRow.RowIndex].Values["report_image"].ToString();
 
 
@@ -91,22 +93,36 @@ public partial class patient_orderMedicine : System.Web.UI.Page
             Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please select the prescription');", true);
         }
        SelectedChemistID = Convert.ToInt32(grdShowChemist.DataKeys[grdShowChemist.SelectedRow.RowIndex].Values["chemist_id"].ToString());
-
-
-
-
+        
     }
 
     protected void btnOrderMedicine_Click(object sender, EventArgs e)
     {
+        if(txtDeliveryAddress.Text.Length == 0)
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please enter a delivery address!');", true);
+            return;
+        }
+        if (txtOrderDetails.Text.Length == 0)
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please enter order details!');", true);
+            return;
+        }
         if (SelectedChemistID == 0)
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please select the prescription');", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please select a chemist');", true); return;
+        }
+        if (SelectedReportID == 0)
+        {
+            Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Please select a prescription');", true);
+            return;
         }
         if (obj.SP_ORDER_MEDICINE(1,pid , SelectedChemistID, 0, SelectedReportImage, txtOrderDetails.Text,400 ,txtDeliveryAddress.Text, "Order Placed") == 0)
         {
             Page.ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Order placed successfully');", true);
-
+            SelectedReportID = 0;
+            SelectedChemistID = 0;
+            SelectedReportImage = null;
         }
         else
         {

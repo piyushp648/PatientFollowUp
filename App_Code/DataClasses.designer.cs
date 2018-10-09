@@ -221,13 +221,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		return ((int)(result.ReturnValue));
 	}
 	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_ORDER_MEDICINE")]
-	public int SP_ORDER_MEDICINE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> order_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(111)")] string prescription, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string order_details, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> payment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Delivery_address_", DbType="VarChar(50)")] string delivery_address_, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_status", DbType="VarChar(20)")] string order_status)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, patient_id, chemist_id, order_id, prescription, order_details, payment_id, delivery_address_, order_status);
-		return ((int)(result.ReturnValue));
-	}
-	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_PATIENT")]
 	public int SP_PATIENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(70)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string phone_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> date_of_birth, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string medical_history)
 	{
@@ -267,6 +260,13 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	public int SP_DOCTOR([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> doctor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string registration_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address_, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string phone_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> date_of_birth, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string degree, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string specialization, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string work_address_)
 	{
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, doctor_id, registration_no, name_, address_, email, phone_no, date_of_birth, degree, specialization, work_address_);
+		return ((int)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_ORDER_MEDICINE")]
+	public int SP_ORDER_MEDICINE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTION", DbType="Int")] System.Nullable<int> aCTION, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> chemist_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> order_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(111)")] string prescription, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string order_details, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> payment_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Delivery_address_", DbType="VarChar(50)")] string delivery_address_, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_status", DbType="VarChar(20)")] string order_status)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aCTION, patient_id, chemist_id, order_id, prescription, order_details, payment_id, delivery_address_, order_status);
 		return ((int)(result.ReturnValue));
 	}
 }

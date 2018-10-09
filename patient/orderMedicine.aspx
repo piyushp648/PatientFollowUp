@@ -61,7 +61,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <asp:GridView ID="grdPrescription" runat="server" DataKeyNames="report_image" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="grdPrescription_SelectedIndexChanged">
+                    <asp:GridView ID="grdPrescription" runat="server" DataKeyNames="report_image" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="grdPrescription_SelectedIndexChanged">
                         <Columns>
                             <asp:BoundField DataField="patient_id" HeaderText="Patient Id" />
                             <asp:BoundField DataField="report_id" HeaderText="Report Id" />
@@ -81,7 +81,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <asp:GridView ID="grdShowChemist" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="grdShowChemist_SelectedIndexChanged">
+                    <asp:GridView ID="grdShowChemist" runat="server" DataKeyNames="chemist_id" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="grdShowChemist_SelectedIndexChanged">
                         <Columns>
                             <asp:BoundField DataField="name_" HeaderText="Name" />
                             <asp:BoundField DataField="address_" HeaderText="Address" />

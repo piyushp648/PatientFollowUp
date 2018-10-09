@@ -38,9 +38,9 @@
                     <asp:BoundField DataField="order_details" HeaderText="Order Details" />
                     <asp:BoundField DataField="Delivery_address_" HeaderText="Address" />
                     <asp:BoundField DataField="Order_status" HeaderText="Order Status" />
-                    <asp:BoundField DataField="payment_id" HeaderText="Payment Id" />
                     <asp:BoundField DataField="prescription" HeaderText="Prescription" />
                     <asp:ButtonField Text="Confirm Order" ButtonType="Button" CommandName="Select"/>
+                    <asp:ButtonField Text="View Prescription" ButtonType="Button" CommandName="Select" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
